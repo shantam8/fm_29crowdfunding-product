@@ -1,8 +1,478 @@
 @import url("https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;700&display=swap");
+header {
+  background-image: url("../images/image-hero-mobile.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 2rem;
+  padding-bottom: 15rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header img {
+  position: relative;
+  z-index: 1000;
+}
+
+header #btnToggleMobileMenu {
+  position: relative;
+  width: 16px;
+  height: 16px;
+  z-index: 1000;
+}
+
+header #btnToggleMobileMenu:hover, header #btnToggleMobileMenu:focus {
+  cursor: pointer;
+}
+
+header.isOpen {
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+header.isOpen nav {
+  margin: 0 2rem 2rem 2rem;
+  position: absolute;
+  top: 5rem;
+  left: 0;
+  right: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: white;
+  border-radius: 8px;
+  z-index: 500;
+}
+
+header.isOpen nav a {
+  padding: 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  -webkit-transition: color 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out;
+}
+
+header.isOpen nav a:nth-child(2) {
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+}
+
+header.isOpen nav a:hover, header.isOpen nav a:focus {
+  color: red;
+}
+
+header.isOpen nav a:active {
+  -webkit-transition: all 0s ease-in-out;
+  transition: all 0s ease-in-out;
+  text-decoration: underline;
+}
+
+section#title {
+  position: relative;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  padding: 2rem;
+  border-radius: 8px;
+  background-color: white;
+  -webkit-box-shadow: 0 0 5px 1px lightgray;
+          box-shadow: 0 0 5px 1px lightgray;
+  padding-top: 3rem;
+  top: -3rem;
+  text-align: center;
+  z-index: 0;
+}
+
+section#title::before {
+  position: absolute;
+  top: -1.5rem;
+  left: 0;
+  right: 0;
+  content: url("../images/logo-mastercraft.svg");
+}
+
+section#title h1 {
+  font-weight: 700;
+  font-size: 1.8rem;
+}
+
+section#title p {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+section#title .flexContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+section#title .flexContainer #btnBackProject {
+  color: white;
+  width: 180px;
+  height: 50px;
+  border: none;
+  border-radius: 25px;
+  background-color: #3cb4ac;
+  font-size: 1rem;
+  font-weight: 700;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+section#title .flexContainer #btnBackProject:hover, section#title .flexContainer #btnBackProject:focus {
+  background-color: #147b74;
+  cursor: pointer;
+}
+
+section#title .flexContainer #btnBackProject:active {
+  -webkit-transition: color 0s ease-in-out;
+  transition: color 0s ease-in-out;
+  color: red;
+}
+
+section#title .flexContainer #btnBookmarkProject {
+  background-image: url("../images/icon-bookmark.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  border: none;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+section#title .flexContainer #btnBookmarkProject:hover, section#title .flexContainer #btnBookmarkProject:focus {
+  outline: 4px solid #3cb4ac;
+  cursor: pointer;
+}
+
+section#title .flexContainer #btnBookmarkProject:active {
+  -webkit-transition: color 0s ease-in-out;
+  transition: color 0s ease-in-out;
+  outline: 4px solid red;
+}
+
+section#stats {
+  margin-left: 2rem;
+  margin-right: 2rem;
+  padding: 2rem;
+  border-radius: 8px;
+  background-color: white;
+  -webkit-box-shadow: 0 0 5px 1px lightgray;
+          box-shadow: 0 0 5px 1px lightgray;
+  margin-bottom: 2.5rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+section#stats .flexContainer .textblock {
+  padding: 1rem;
+}
+
+section#stats .flexContainer .textblock h2 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+section#stats .flexContainer .textblock:nth-child(2) {
+  position: relative;
+}
+
+section#stats .flexContainer .textblock:nth-child(2)::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 90px;
+  margin: 0 auto;
+  border: 1px solid lightgray;
+}
+
+section#stats .flexContainer .textblock:nth-child(2)::after {
+  position: absolute;
+  content: "";
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 90px;
+  margin: 0 auto;
+  border: 1px solid lightgray;
+}
+
+section#stats .progressbar {
+  height: 20px;
+  margin: 1rem;
+  background-color: lightgray;
+  border-radius: 10px;
+}
+
+section#stats .progressbar .progressbarFilled {
+  width: 60%;
+  height: 100%;
+  border-radius: 10px;
+  background-color: #3cb4ac;
+}
+
+section#about {
+  margin-left: 2rem;
+  margin-right: 2rem;
+  padding: 2rem;
+  border-radius: 8px;
+  background-color: white;
+  -webkit-box-shadow: 0 0 5px 1px lightgray;
+          box-shadow: 0 0 5px 1px lightgray;
+  padding-bottom: 0.5rem;
+}
+
+section#about h3 {
+  font-weight: 700;
+}
+
+section#about p {
+  line-height: 1.5;
+  font-size: 0.8rem;
+  margin-top: 1rem;
+}
+
+section#about .card {
+  margin: 2rem 0;
+  border-radius: 8px;
+  padding: 1rem;
+  -webkit-box-shadow: 0 0 5px 1px lightgray;
+          box-shadow: 0 0 5px 1px lightgray;
+}
+
+section#about .card h4 {
+  font-weight: 700;
+}
+
+section#about .card p:first-of-type {
+  font-weight: 500;
+  color: #3cb4ac;
+}
+
+section#about .card p:last-of-type span {
+  vertical-align: middle;
+  font-weight: 700;
+  font-size: 2rem;
+  color: black;
+}
+
+section#about .card button {
+  color: white;
+  width: 180px;
+  height: 50px;
+  border: none;
+  border-radius: 25px;
+  background-color: #3cb4ac;
+  font-size: 1rem;
+  font-weight: 700;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  margin-top: 1rem;
+  width: 150px;
+}
+
+section#about .card button:hover, section#about .card button:focus {
+  background-color: #147b74;
+  cursor: pointer;
+}
+
+section#about .card button:active {
+  -webkit-transition: color 0s ease-in-out;
+  transition: color 0s ease-in-out;
+  color: red;
+}
+
+section#about .card.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+section#about .card.disabled button {
+  background-color: lightgray;
+}
+
+section#modalBackingProject {
+  position: absolute;
+  top: 7rem;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  padding: 2rem;
+  border-radius: 8px;
+  background-color: white;
+  -webkit-box-shadow: 0 0 5px 1px lightgray;
+          box-shadow: 0 0 5px 1px lightgray;
+  background-color: linen;
+}
+
+section#modalBackingProject .flexContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+section#modalBackingProject .flexContainer h1 {
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+section#modalBackingProject .flexContainer img {
+  width: 15px;
+  height: 15px;
+}
+
+section#modalBackingProject h3 {
+  font-weight: 700;
+}
+
+section#modalBackingProject p {
+  line-height: 1.5;
+  font-size: 0.8rem;
+  margin-top: 1rem;
+}
+
+section#modalBackingProject .card {
+  margin: 2rem 0;
+  border-radius: 8px;
+  padding: 1rem;
+  -webkit-box-shadow: 0 0 5px 1px lightgray;
+          box-shadow: 0 0 5px 1px lightgray;
+}
+
+section#modalBackingProject .card h4 {
+  font-weight: 700;
+}
+
+section#modalBackingProject .card p:first-of-type {
+  font-weight: 500;
+  color: #3cb4ac;
+}
+
+section#modalBackingProject .card p:last-of-type span {
+  vertical-align: middle;
+  font-weight: 700;
+  font-size: 2rem;
+  color: black;
+}
+
+section#modalBackingProject .card button {
+  color: white;
+  width: 180px;
+  height: 50px;
+  border: none;
+  border-radius: 25px;
+  background-color: #3cb4ac;
+  font-size: 1rem;
+  font-weight: 700;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  margin-top: 1rem;
+  width: 150px;
+}
+
+section#modalBackingProject .card button:hover, section#modalBackingProject .card button:focus {
+  background-color: #147b74;
+  cursor: pointer;
+}
+
+section#modalBackingProject .card button:active {
+  -webkit-transition: color 0s ease-in-out;
+  transition: color 0s ease-in-out;
+  color: red;
+}
+
+section#modalBackingProject .card.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+section#modalBackingProject .card.disabled button {
+  background-color: lightgray;
+}
+
 * {
   margin: 0;
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+a,
+button {
+  font-family: "Commissioner", sans-serif;
+  font-weight: 400;
+  color: black;
+}
+
+a {
+  text-decoration: none;
+}
+
+p {
+  line-height: 1.75rem;
+  color: #7a7a7a;
+}
+
+body {
+  position: relative;
+}
+
+body.overflowHidden {
+  overflow: hidden;
+}
+
+body .darkoverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: black;
+  z-index: 1;
+  opacity: 0.5;
+}
+
+body main {
+  background-color: #fafafa;
 }
 /*# sourceMappingURL=main.css.map */

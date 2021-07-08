@@ -1,0 +1,61 @@
+section#title {
+  position: relative;
+
+  @include sectionBorderMarginPadding;
+  padding-top: 3rem;
+  top: -3rem;
+  text-align: center;
+  z-index: 0;
+
+  &::before {
+    position: absolute;
+    top: -1.5rem;
+    left: 0;
+    right: 0;
+    content: url("../images/logo-mastercraft.svg");
+  }
+
+  h1 {
+    font-weight: 700;
+    font-size: 1.8rem;
+  }
+
+  p {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .flexContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    #btnBackProject {
+      @include btnStyleGreen;
+      @include btnHoverFocusActive;
+    }
+
+    #btnBookmarkProject {
+      background-image: url("../images/icon-bookmark.svg");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      width: 50px;
+      height: 50px;
+      border-radius: 25px;
+      border: none;
+
+      transition: all 0.3s ease-in-out;
+
+      &:hover, &:focus{
+          outline: 4px solid $moderateCyan;
+          cursor: pointer;
+      }
+  
+      &:active{
+          transition: color 0s ease-in-out;
+          outline: 4px solid red;
+      }
+    }
+  }
+}

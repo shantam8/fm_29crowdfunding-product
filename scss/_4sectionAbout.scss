@@ -1,0 +1,55 @@
+section#about {
+  @include sectionBorderMarginPadding;
+  padding-bottom: 0.5rem;
+
+  h3 {
+    font-weight: 700;
+  }
+
+  p {
+    line-height: 1.5;
+    font-size: 0.8rem;
+    margin-top: 1rem;
+  }
+
+  .card {
+    margin: 2rem 0;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 0 5px 1px lightgray;
+
+    h4 {
+      font-weight: 700;
+    }
+
+    p:first-of-type {
+      font-weight: 500;
+      color: $moderateCyan;
+    }
+
+    p:last-of-type {
+      span {
+        vertical-align: middle;
+        font-weight: 700;
+        font-size: 2rem;
+        color: $black;
+      }
+    }
+
+    button {
+      @include btnStyleGreen;
+      @include btnHoverFocusActive;
+      margin-top: 1rem;
+      width: 150px;
+    }
+
+    &.disabled {
+      opacity: 0.5;
+      pointer-events: none;
+
+      button {
+        background-color: lightgray;
+      }
+    }
+  }
+}
