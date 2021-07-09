@@ -1,31 +1,32 @@
-section#modalBackingProject{
-    position: absolute;
-    top: 7rem;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    
-    @include sectionBorderMarginPadding;
-    background-color: linen;
+section#modalBackingProject {
+  display: none;
+  position: absolute;
+  top: 40rem;
+  left: 0;
+  right: 0;
+  z-index: 1000;
 
+  @include sectionBorderMarginPadding;
 
-    .flexContainer{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        h1{
-            font-weight: 700;
-            font-size: 1rem;
-        }
-        img{
-            width: 15px;
-            height: 15px;
-        }
+  &.showModal {
+    display: initial;
+  }
+
+  .flexContainerModalTitle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    img {
+      width: 15px;
+      height: 15px;
+
+      &:hover,
+      &:focus {
+        cursor: pointer;
+        outline: 2px solid $moderateCyan;
+      }
     }
-
-
-  h3 {
-    font-weight: 700;
   }
 
   p {
@@ -35,42 +36,94 @@ section#modalBackingProject{
   }
 
   .card {
+    position: relative;
     margin: 2rem 0;
     border-radius: 8px;
     padding: 1rem;
     box-shadow: 0 0 5px 1px lightgray;
 
-    h4 {
-      font-weight: 700;
-    }
+    .flexContainerCardTitle {
+      display: flex;
+      justify-content: left;
+      align-items: center;
 
-    p:first-of-type {
-      font-weight: 500;
-      color: $moderateCyan;
-    }
-
-    p:last-of-type {
-      span {
-        vertical-align: middle;
-        font-weight: 700;
-        font-size: 2rem;
-        color: $black;
+      input {
+        margin-right: 10px;
+      }
+      .textBlock {
+        .pledge {
+          margin-top: 0;
+        }
       }
     }
 
-    button {
-      @include btnStyleGreen;
-      @include btnHoverFocusActive;
-      margin-top: 1rem;
-      width: 150px;
+    span.numberLeft {
+      vertical-align: middle;
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: $black;
+    }
+
+    .pledgeSubmit {
+      overflow: hidden;
+      display: none;
+      max-height: 0px;
+      text-align: center;
+      padding-bottom: 1rem;
+      position: relative;
+      transition: all 0.3s ease-in-out;
+
+      p {
+        margin: 1.5rem;
+      }
+
+      label {
+        position: absolute;
+        left: 10px;
+        color: lightgray;
+        bottom: 32px;
+    
+      }
+
+      input {
+        width: 80px;
+        height: 50px;
+        border: 1px solid lightgray;
+        border-radius: 25px;
+        font-size: 1rem;
+        font-weight: 700;
+        padding-left: 25px;
+        padding-right: 4px;
+        margin-right: 28px;
+      }
+
+      button {
+        @include btnStyleGreen;
+        @include btnHoverFocusActive;
+        width: 100px;
+      }
     }
 
     &.disabled {
       opacity: 0.5;
       pointer-events: none;
+    }
 
-      button {
-        background-color: lightgray;
+    &.cardActivated {
+      box-shadow: 0 0 5px 3px $moderateCyan;
+      //transition: border 0.2s ease-in-out 0.2s;
+
+      .pledgeSubmit {
+        display: block;
+        max-height: 150px;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 9rem;
+        border: 1px solid lightgray;
       }
     }
   }

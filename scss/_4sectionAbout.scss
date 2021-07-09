@@ -2,10 +2,6 @@ section#about {
   @include sectionBorderMarginPadding;
   padding-bottom: 0.5rem;
 
-  h3 {
-    font-weight: 700;
-  }
-
   p {
     line-height: 1.5;
     font-size: 0.8rem;
@@ -18,22 +14,11 @@ section#about {
     padding: 1rem;
     box-shadow: 0 0 5px 1px lightgray;
 
-    h4 {
+    span.numberLeft {
+      vertical-align: middle;
       font-weight: 700;
-    }
-
-    p:first-of-type {
-      font-weight: 500;
-      color: $moderateCyan;
-    }
-
-    p:last-of-type {
-      span {
-        vertical-align: middle;
-        font-weight: 700;
-        font-size: 2rem;
-        color: $black;
-      }
+      font-size: 2rem;
+      color: $black;
     }
 
     button {

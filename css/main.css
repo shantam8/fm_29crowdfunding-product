@@ -193,7 +193,7 @@ section#stats .flexContainer .textblock {
   padding: 1rem;
 }
 
-section#stats .flexContainer .textblock h2 {
+section#stats .flexContainer .textblock h1 {
   font-size: 2rem;
   font-weight: 700;
 }
@@ -249,10 +249,6 @@ section#about {
   padding-bottom: 0.5rem;
 }
 
-section#about h3 {
-  font-weight: 700;
-}
-
 section#about p {
   line-height: 1.5;
   font-size: 0.8rem;
@@ -267,16 +263,7 @@ section#about .card {
           box-shadow: 0 0 5px 1px lightgray;
 }
 
-section#about .card h4 {
-  font-weight: 700;
-}
-
-section#about .card p:first-of-type {
-  font-weight: 500;
-  color: #3cb4ac;
-}
-
-section#about .card p:last-of-type span {
+section#about .card span.numberLeft {
   vertical-align: middle;
   font-weight: 700;
   font-size: 2rem;
@@ -319,8 +306,9 @@ section#about .card.disabled button {
 }
 
 section#modalBackingProject {
+  display: none;
   position: absolute;
-  top: 7rem;
+  top: 40rem;
   left: 0;
   right: 0;
   z-index: 1000;
@@ -331,10 +319,13 @@ section#modalBackingProject {
   background-color: white;
   -webkit-box-shadow: 0 0 5px 1px lightgray;
           box-shadow: 0 0 5px 1px lightgray;
-  background-color: linen;
 }
 
-section#modalBackingProject .flexContainer {
+section#modalBackingProject.showModal {
+  display: initial;
+}
+
+section#modalBackingProject .flexContainerModalTitle {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -346,18 +337,14 @@ section#modalBackingProject .flexContainer {
           align-items: center;
 }
 
-section#modalBackingProject .flexContainer h1 {
-  font-weight: 700;
-  font-size: 1rem;
-}
-
-section#modalBackingProject .flexContainer img {
+section#modalBackingProject .flexContainerModalTitle img {
   width: 15px;
   height: 15px;
 }
 
-section#modalBackingProject h3 {
-  font-weight: 700;
+section#modalBackingProject .flexContainerModalTitle img:hover, section#modalBackingProject .flexContainerModalTitle img:focus {
+  cursor: pointer;
+  outline: 2px solid #3cb4ac;
 }
 
 section#modalBackingProject p {
@@ -367,6 +354,7 @@ section#modalBackingProject p {
 }
 
 section#modalBackingProject .card {
+  position: relative;
   margin: 2rem 0;
   border-radius: 8px;
   padding: 1rem;
@@ -374,23 +362,68 @@ section#modalBackingProject .card {
           box-shadow: 0 0 5px 1px lightgray;
 }
 
-section#modalBackingProject .card h4 {
-  font-weight: 700;
+section#modalBackingProject .card .flexContainerCardTitle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-section#modalBackingProject .card p:first-of-type {
-  font-weight: 500;
-  color: #3cb4ac;
+section#modalBackingProject .card .flexContainerCardTitle input {
+  margin-right: 10px;
 }
 
-section#modalBackingProject .card p:last-of-type span {
+section#modalBackingProject .card .flexContainerCardTitle .textBlock .pledge {
+  margin-top: 0;
+}
+
+section#modalBackingProject .card span.numberLeft {
   vertical-align: middle;
   font-weight: 700;
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: black;
 }
 
-section#modalBackingProject .card button {
+section#modalBackingProject .card .pledgeSubmit {
+  overflow: hidden;
+  display: none;
+  max-height: 0px;
+  text-align: center;
+  padding-bottom: 1rem;
+  position: relative;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+section#modalBackingProject .card .pledgeSubmit p {
+  margin: 1.5rem;
+}
+
+section#modalBackingProject .card .pledgeSubmit label {
+  position: absolute;
+  left: 10px;
+  color: lightgray;
+  bottom: 32px;
+}
+
+section#modalBackingProject .card .pledgeSubmit input {
+  width: 80px;
+  height: 50px;
+  border: 1px solid lightgray;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 700;
+  padding-left: 25px;
+  padding-right: 4px;
+  margin-right: 28px;
+}
+
+section#modalBackingProject .card .pledgeSubmit button {
   color: white;
   width: 180px;
   height: 50px;
@@ -401,16 +434,15 @@ section#modalBackingProject .card button {
   font-weight: 700;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
-  margin-top: 1rem;
-  width: 150px;
+  width: 100px;
 }
 
-section#modalBackingProject .card button:hover, section#modalBackingProject .card button:focus {
+section#modalBackingProject .card .pledgeSubmit button:hover, section#modalBackingProject .card .pledgeSubmit button:focus {
   background-color: #147b74;
   cursor: pointer;
 }
 
-section#modalBackingProject .card button:active {
+section#modalBackingProject .card .pledgeSubmit button:active {
   -webkit-transition: color 0s ease-in-out;
   transition: color 0s ease-in-out;
   color: red;
@@ -421,8 +453,23 @@ section#modalBackingProject .card.disabled {
   pointer-events: none;
 }
 
-section#modalBackingProject .card.disabled button {
-  background-color: lightgray;
+section#modalBackingProject .card.cardActivated {
+  -webkit-box-shadow: 0 0 5px 3px #3cb4ac;
+          box-shadow: 0 0 5px 3px #3cb4ac;
+}
+
+section#modalBackingProject .card.cardActivated .pledgeSubmit {
+  display: block;
+  max-height: 150px;
+}
+
+section#modalBackingProject .card.cardActivated::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 9rem;
+  border: 1px solid lightgray;
 }
 
 * {
@@ -437,11 +484,14 @@ h2,
 h3,
 h4,
 p,
-a,
-button {
+a, ::before {
   font-family: "Commissioner", sans-serif;
   font-weight: 400;
   color: black;
+}
+
+h1, h2, h3, h4 {
+  font-weight: 700;
 }
 
 a {
@@ -451,6 +501,11 @@ a {
 p {
   line-height: 1.75rem;
   color: #7a7a7a;
+}
+
+.pledge {
+  font-weight: 500;
+  color: #3cb4ac;
 }
 
 body {

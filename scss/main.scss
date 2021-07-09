@@ -22,11 +22,16 @@ h2,
 h3,
 h4,
 p,
-a,
-button {
+a, ::before
+{
   font-family: "Commissioner", sans-serif;
   font-weight: 400;
   color: $black;
+}
+
+h1, h2, h3, h4{
+  font-weight: 700;
+
 }
 
 a {
@@ -36,6 +41,11 @@ a {
 p {
   line-height: 1.75rem;
   color: $darkGray;
+}
+
+.pledge{
+  font-weight: 500;
+  color: $moderateCyan;
 }
 
 body {
