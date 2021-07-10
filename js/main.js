@@ -2,7 +2,7 @@ let bodySection = document.querySelector("body");
 let mainSection = document.querySelector("main");
 let divDarkoverlay = document.querySelector("#darkOverlay");
 
-let headerSection = document.querySelector("header");
+let headerSection = document.querySelector(".headerFlexContainer");
 let btnToggleMobileMenu = document.querySelector("#btnToggleMobileMenu");
 let btnToggleBookmark = document.querySelector("#btnBookmarkProject");
 let sectionBackingModal = document.querySelector("#modalBackingProject");
@@ -54,15 +54,12 @@ let statusFieldsRewardsLeftMahogany = document.querySelectorAll(
   ".rewardsLeftMahogany"
 );
 
-function toggleBookmark(){
-  if(btnToggleBookmark.classList.contains("active")){
+function toggleBookmark() {
+  if (btnToggleBookmark.classList.contains("active")) {
     btnToggleBookmark.classList.remove("active");
-
-  }else{
+  } else {
     btnToggleBookmark.classList.add("active");
-
   }
-
 }
 
 function mobileMenuToggle() {
@@ -89,7 +86,7 @@ function toggleModal(selectedReward) {
   } else {
     sectionBackingModal.classList.add("showModal");
     divDarkoverlay.classList.add("darkoverlay");
-    window.scrollTo(0,0);
+    window.scrollTo(0, 0);
   }
 }
 
@@ -101,7 +98,7 @@ function toggleShowThankYouModal() {
   } else {
     sectionBackingModal.classList.remove("showModal");
     sectionThankYouModal.classList.add("showModal");
-    window.scrollTo(0,0);
+    window.scrollTo(0, 0);
   }
 }
 
@@ -176,6 +173,12 @@ function updateRewardsLeft() {
   }
 }
 
+function closeMobileMenuOnResize() {
+  if (headerSection.classList.contains("isOpen") && screen.width >= 635) {
+    mobileMenuToggle();
+  }
+}
+
 function init() {
   console.log("Hi");
   updateBackerStates();
@@ -240,6 +243,8 @@ function init() {
   document
     .querySelector("#btnThankYouModal")
     .addEventListener("click", toggleShowThankYouModal);
+
+  window.addEventListener("resize", closeMobileMenuOnResize);
 }
 
 window.onload = init;

@@ -1,7 +1,6 @@
 section#title {
-  position: relative;
-
   @include sectionBorderMarginPadding;
+  position: relative;
   padding-top: 3rem;
   top: -3rem;
   text-align: center;
@@ -9,15 +8,15 @@ section#title {
 
   &::before {
     position: absolute;
+    content: url("../images/logo-mastercraft.svg");
     top: -1.5rem;
     left: 0;
     right: 0;
-    content: url("../images/logo-mastercraft.svg");
   }
 
   h1 {
-    font-weight: 700;
     font-size: 1.8rem;
+    font-weight: 700;
   }
 
   p {
@@ -38,34 +37,61 @@ section#title {
     #btnBookmarkProject {
       width: 50px;
       height: 50px;
-      border-radius: 25px;
       border: none;
+      border-radius: 25px;
       transition: all 0.3s ease-in-out;
 
-      &.active{
-        svg{
+      &.active {
+        svg {
           circle {
-            fill: $darkCyan
+            fill: $darkCyan;
           }
-          path{
+          path {
             fill: white;
           }
-        } 
-        
-
+        }
       }
-
 
       &:hover,
       &:focus {
         cursor: pointer;
         box-shadow: 0px 0 8px 3px $moderateCyan;
       }
-
     }
   }
 
-@include medaiQuery30remSectionSize;
-@include medaiQuery50remSectionSize;
+  @include mediaQuery30remSectionSize;
+  @include mediaQuery50remSectionSize;
 
+  @media screen and (min-width: 50rem) {
+    p {
+      margin-bottom: 2rem;
+    }
+
+    .flexContainer {
+      #btnBookmarkProject {
+        width: 180px;
+        text-align: left;
+
+        &::after {
+          position: relative;
+          content: "Bookmark";
+          top: -18px;
+          left: 18px;
+          font-size: 1rem;
+          color: #2f2f2f;
+          font-weight: 700;
+        }
+
+        &.active {
+          &::after {
+            color: $darkCyan;
+            content: "Bookmarked";
+            left: 11px;
+
+          }
+        }
+      }
+    }
+  }
 }

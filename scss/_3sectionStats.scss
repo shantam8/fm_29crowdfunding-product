@@ -15,37 +15,36 @@ section#stats {
 
       &:nth-child(2) {
         position: relative;
-        
+
         &::before {
           position: absolute;
+          margin: 0 auto;
+          width: 90px;
           content: "";
           top: 0;
           left: 0;
           right: 0;
-          width: 90px;
-          margin: 0 auto;
           border: 1px solid lightgray;
         }
 
         &::after {
           position: absolute;
+          margin: 0 auto;
+          width: 90px;
           content: "";
           left: 0;
           right: 0;
           bottom: 0;
-          width: 90px;
-          margin: 0 auto;
           border: 1px solid lightgray;
         }
       }
     }
   }
   .progressbar {
-    height: 20px;
     margin: 1rem;
-
-    background-color: lightgray;
+    height: 20px;
     border-radius: 10px;
+    background-color: lightgray;
 
     .progressbarFilled {
       width: 60%;
@@ -55,7 +54,50 @@ section#stats {
     }
   }
 
-  @include medaiQuery30remSectionSize;
-  @include medaiQuery50remSectionSize;
+  @include mediaQuery30remSectionSize;
+  @include mediaQuery50remSectionSize;
 
+  @media screen and (min-width: 50rem) {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+
+    .flexContainer {
+      display: flex;
+      justify-content: left;
+      align-items: center;
+      text-align: left;
+
+      .textblock {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        padding-top: 0;
+        padding-bottom: 0;
+
+        &:not(:nth-child(1)) {
+          padding-left: 3rem;
+        }
+
+        padding-right: 3rem;
+
+        &:nth-child(2) {
+          border-left: 2px solid lightgrey;
+          border-right: 2px solid lightgrey;
+
+          &::before {
+            position: unset;
+            content: unset;
+          }
+
+          &::after {
+            position: unset;
+            content: unset;
+          }
+        }
+      }
+    }
+
+    .progressbar {
+      padding: 0;
+    }
+  }
 }

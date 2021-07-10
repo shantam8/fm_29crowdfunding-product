@@ -20,19 +20,20 @@
     <div id="darkOverlay"></div>
 
     <header>
-      <img src="./images/logo.svg" alt="logo" />
+      <div class="headerFlexContainer">
+        <img id="imgHeaderLogo" src="./images/logo.svg" alt="logo" />
+        <nav hidden>
+          <a href="#">About</a>
+          <a href="#">Discover</a>
+          <a href="#">Get Started</a>
+        </nav>
 
-      <nav hidden>
-        <a href="#">About</a>
-        <a href="#">Discover</a>
-        <a href="#">Get Started</a>
-      </nav>
-
-      <img
-        id="btnToggleMobileMenu"
-        src="./images/icon-hamburger.svg"
-        alt="open Menu"
-      />
+        <img
+          id="btnToggleMobileMenu"
+          src="./images/icon-hamburger.svg"
+          alt="open Menu"
+        />
+      </div>
     </header>
 
     <main>
@@ -44,7 +45,12 @@
         <div class="flexContainer">
           <button id="btnBackProject">Back this project</button>
           <button id="btnBookmarkProject">
-            <svg viewBox="0 0 56 56" width="50" height="50" xmlns="http://www.w3.org/2000/svg">
+            <svg
+              viewBox="0 0 56 56"
+              width="50"
+              height="50"
+              xmlns="http://www.w3.org/2000/svg"
+            >
               <g fill="none" fill-rule="evenodd">
                 <circle fill="#2F2F2F" cx="28" cy="28" r="28" />
                 <path fill="#B1B1B1" d="M23 19v18l5-5.058L33 37V19z" />
@@ -90,47 +96,60 @@
         </p>
 
         <div class="card bambooStand">
-          <h4>Bamboo Stand</h4>
-          <p class="pledge">Pledge $25 or more</p>
+          <div class="flexContainerCard">
+            <h4>Bamboo Stand</h4>
+            <p class="pledge">Pledge $25 or more</p>
+          </div>
           <p>
             You get an ergonomic stand made of natural bamboo. You've helped us
             launch our promotional campaign, and you’ll be added to a special
             Backer member list.
           </p>
-          <p>
-            <span class="numberLeft rewardsLeftBamboo"> </span>
-            left
-          </p>
-          <button id="btnSelectRewardBambooStand">Select Reward</button>
+          <div class="flexContainerCard">
+            <p>
+              <span class="numberLeft rewardsLeftBamboo"> </span>
+              left
+            </p>
+            <button id="btnSelectRewardBambooStand">Select Reward</button>
+          </div>
         </div>
 
         <div class="card blackEdition">
-          <h4>Black Edition Stand</h4>
-          <p class="pledge">Pledge $75 or more</p>
+          <div class="flexContainerCard">
+            <h4>Black Edition Stand</h4>
+            <p class="pledge">Pledge $75 or more</p>
+          </div>
           <p>
             You get a Black Special Edition computer stand and a personal thank
             you. You’ll be added to our Backer member list. Shipping is
             included.
           </p>
-          <p><span class="numberLeft rewardsLeftBlackEdition"></span>left</p>
-          <button id="btnSelectRewardBlackStand">Select Reward</button>
+          <div class="flexContainerCard">
+            <p><span class="numberLeft rewardsLeftBlackEdition"></span>left</p>
+            <button id="btnSelectRewardBlackStand">Select Reward</button>
+          </div>
         </div>
+
         <div class="card mahogany">
-          <h4>Mahogany Special Edition</h4>
-          <p class="pledge">Pledge $200 or more</p>
+          <div class="flexContainerCard">
+            <h4>Mahogany Special Edition</h4>
+            <p class="pledge">Pledge $200 or more</p>
+          </div>
           <p>
             You get two Special Edition Mahogany stands, a Backer T-Shirt, and a
             personal thank you. You’ll be added to our Backer member list.
             Shipping is included.
           </p>
-          <p><span class="numberLeft rewardsLeftMahogany"> 0 </span>left</p>
-          <button id="btnSelectRewardMahogany">Select Reward</button>
+          <div class="flexContainerCard">
+            <p><span class="numberLeft rewardsLeftMahogany"> 0 </span>left</p>
+            <button id="btnSelectRewardMahogany">Select Reward</button>
+          </div>
         </div>
       </section>
     </main>
 
+    <!-- Selection modal start -->
     <section id="modalBackingProject">
-      <!-- Selection modal start -->
       <div class="flexContainerModalTitle">
         <h3>Back this project</h3>
         <img
@@ -145,138 +164,155 @@
       </p>
 
       <div class="card">
-        <div class="flexContainerCardTitle">
+        <div class="gridContainerCardTitle">
           <input type="radio" name="selectReward" id="radioBtnNoReward" />
           <div class="textBlock">
-            <h4>Pledge with no reward</h4>
+            <label for="radioBtnNoReward">
+              <h4>Pledge with no reward</h4>
+            </label>
           </div>
+          <p>
+            Choose to support us without a reward if you simply believe in our
+            project. As a backer, you will be signed up to receive product
+            updates via email.
+          </p>
         </div>
-        <p>
-          Choose to support us without a reward if you simply believe in our
-          project. As a backer, you will be signed up to receive product updates
-          via email.
-        </p>
-
         <!-- Selected pledge start -->
         <div class="pledgeSubmit">
-          <p>Enter your pledge</p>
-          <label for="sumForNoReward" class="dollarSignContainer">$ </label>
-          <input
-            id="sumForNoReward"
-            type="number"
-            min="1"
-            max="9999"
-            value="1"
-          />
-
-          <button id="btnModalSubmitNoReward">Continue</button>
+          <div class="pledgeFlexContainer">
+            <p>Enter your pledge</p>
+            <div class="pledgeInputButtonContainer">
+              <input
+                id="sumForNoReward"
+                class="no-spinners"
+                type="number"
+                min="1"
+                max="9999"
+                value="1"
+              />
+              <button id="btnModalSubmitNoReward">Continue</button>
+            </div>
+          </div>
         </div>
-
         <!-- Selected pledge end -->
       </div>
 
       <div class="card bambooStand">
-        <div class="flexContainerCardTitle">
+        <div class="gridContainerCardTitle">
           <input type="radio" name="selectReward" id="radioBtnBambooReward" />
           <div class="textBlock">
-            <h4>Bamboo Stand</h4>
+            <label for="radioBtnBambooReward">
+              <h4>Bamboo Stand</h4>
+            </label>
             <p class="pledge">Pledge $25 or more</p>
           </div>
+          <p>
+            You get an ergonomic stand made of natural bamboo. You've helped us
+            launch our promotional campaign, and you’ll be added to a special
+            Backer member list.
+          </p>
+          <p><span class="numberLeft rewardsLeftBamboo"> </span>left</p>
         </div>
-        <p>
-          You get an ergonomic stand made of natural bamboo. You've helped us
-          launch our promotional campaign, and you’ll be added to a special
-          Backer member list.
-        </p>
-        <p><span class="numberLeft rewardsLeftBamboo"> </span>left</p>
-
         <!-- Selected pledge start -->
         <div class="pledgeSubmit">
-          <p>Enter your pledge</p>
-          <label for="sumForBamboo" class="dollarSignContainer">$ </label>
-          <input
-            id="sumForBamboo"
-            type="number"
-            min="25"
-            max="9999"
-            value="25"
-          />
-
-          <button id="btnModalSubmitBamboo">Continue</button>
+          <div class="pledgeFlexContainer">
+            <p>Enter your pledge</p>
+            <div class="pledgeInputButtonContainer">
+              <input
+                id="sumForBamboo"
+                class="no-spinners"
+                type="number"
+                min="25"
+                max="9999"
+                value="25"
+              />
+              <button id="btnModalSubmitBamboo">Continue</button>
+            </div>
+          </div>
         </div>
       </div>
       <!-- Selected pledge end -->
       <div class="card blackEdition">
-        <div class="flexContainerCardTitle">
+        <div class="gridContainerCardTitle">
           <input
             type="radio"
             name="selectReward"
             id="radioBtnBlackEditionReward"
           />
           <div class="textBlock">
-            <h4>Black Edition Stand</h4>
+            <label for="radioBtnBlackEditionReward">
+              <h4>Black Edition Stand</h4>
+            </label>
             <p class="pledge">Pledge $75 or more</p>
           </div>
+          <p>
+            You get a Black Special Edition computer stand and a personal thank
+            you. You’ll be added to our Backer member list. Shipping is
+            included.
+          </p>
+          <p><span class="numberLeft rewardsLeftBlackEdition"> </span>left</p>
         </div>
-        <p>
-          You get a Black Special Edition computer stand and a personal thank
-          you. You’ll be added to our Backer member list. Shipping is included.
-        </p>
-        <p><span class="numberLeft rewardsLeftBlackEdition"> </span>left</p>
 
         <!-- Selected pledge start -->
         <div class="pledgeSubmit">
-          <p>Enter your pledge</p>
-          <label for="sumForBlackEdition" class="dollarSignContainer">$ </label>
-
-          <input
-            id="sumForBlackEdition"
-            type="number"
-            min="75"
-            max="9999"
-            value="75"
-          />
-          <button id="btnModalSubmitBlackEdition">Continue</button>
+          <div class="pledgeFlexContainer">
+            <p>Enter your pledge</p>
+            <div class="pledgeInputButtonContainer">
+              <input
+                id="sumForBlackEdition"
+                class="no-spinners"
+                type="number"
+                min="75"
+                max="9999"
+                value="75"
+              />
+              <button id="btnModalSubmitBlackEdition">Continue</button>
+            </div>
+          </div>
         </div>
       </div>
       <!-- Selected pledge end -->
+
       <div class="card mahogany">
-        <div class="flexContainerCardTitle">
+        <div class="gridContainerCardTitle">
           <input type="radio" name="selectReward" id="radioBtnMahoganyReward" />
           <div class="textBlock">
-            <h4>Mahogany Special Edition</h4>
+            <label for="radioBtnMahoganyReward">
+              <h4>Mahogany Special Edition</h4>
+            </label>
             <p class="pledge">Pledge $200 or more</p>
           </div>
+          <p>
+            You get two Special Edition Mahogany stands, a Backer T-Shirt, and a
+            personal thank you. You’ll be added to our Backer member list.
+            Shipping is included.
+          </p>
+          <p><span class="numberLeft rewardsLeftMahogany"> </span>left</p>
         </div>
-        <p>
-          You get two Special Edition Mahogany stands, a Backer T-Shirt, and a
-          personal thank you. You’ll be added to our Backer member list.
-          Shipping is included.
-        </p>
-        <p><span class="numberLeft rewardsLeftMahogany"> </span>left</p>
 
         <!-- Selected pledge  start -->
         <div class="pledgeSubmit">
-          <p>Enter your pledge</p>
-          <label for="sumForMahogany" class="dollarSignContainer">$ </label>
-
-          <input
-            id="sumForMahogany"
-            type="number"
-            min="200"
-            max="9999"
-            value="200"
-          />
-          <button id="btnModalSubmitMahogany">Continue</button>
+          <div class="pledgeFlexContainer">
+            <p>Enter your pledge</p>
+            <div class="pledgeInputButtonContainer">
+              <input
+                id="sumForMahogany"
+                class="no-spinners"
+                type="number"
+                min="200"
+                max="9999"
+                value="200"
+              />
+              <button id="btnModalSubmitMahogany">Continue</button>
+            </div>
+          </div>
         </div>
       </div>
       <!-- Selected pledge end -->
-
-      <!-- Selection modal end -->
     </section>
+    <!-- Selection modal end -->
 
     <!-- Success modal start -->
-
     <section id="modalThankYou">
       <img src="./images/icon-check.svg" alt="" />
       <h3>Thanks for your support!</h3>

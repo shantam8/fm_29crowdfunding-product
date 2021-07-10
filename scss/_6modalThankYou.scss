@@ -19,8 +19,8 @@ section#modalThankYou {
 
   p {
     margin-top: 1rem;
-    line-height: 22px;
     font-size: 0.9rem;
+    line-height: 22px;
   }
 
   button {
@@ -30,9 +30,11 @@ section#modalThankYou {
     width: 100px;
   }
 
+  @include mediaQuery30remSectionSize;
 
-  @include medaiQuery30remSectionSize;
-@include medaiQuery50remSectionSize;
-
-
+  @media screen and (min-width: 50rem) {
+    width: 30rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
 }

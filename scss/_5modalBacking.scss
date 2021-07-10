@@ -30,79 +30,129 @@ section#modalBackingProject {
   }
 
   p {
-    line-height: 1.5;
-    font-size: 0.8rem;
     margin-top: 1rem;
+    font-size: 0.8rem;
+    line-height: 1.5;
   }
 
   .card {
     position: relative;
     margin: 2rem 0;
-    border-radius: 8px;
     padding: 1rem;
+    border-radius: 8px;
     box-shadow: 0 0 5px 1px lightgray;
 
-    .flexContainerCardTitle {
-      display: flex;
+    .gridContainerCardTitle {
+      display: grid;
+      grid-template-columns: 30px auto;
+      grid-template-rows: repeat(3, auto);
+      grid-template-areas: "radio textBox" "para para" "left left";
       justify-content: left;
       align-items: center;
 
       input {
+        grid-area: radio;
         margin-right: 10px;
+        width: 20px;
+        height: 20px;
       }
       .textBlock {
+        grid-area: textBox;
+        
+        label {
+          &:focus,
+          &:hover {
+            cursor: pointer;
+            h4 {
+              color: $moderateCyan;
+            }
+          }
+          &:active {
+            h4 {
+              color: red;
+            }
+          }
+        }
+
         .pledge {
           margin-top: 0;
         }
       }
-    }
 
-    span.numberLeft {
-      vertical-align: middle;
-      font-weight: 700;
-      font-size: 1.5rem;
-      color: $black;
-      margin-right: 4px;
-    }
+      p:nth-child(3) {
+        grid-area: para;
+      }
 
+      p:nth-child(4) {
+        grid-area: left;
+      }
+
+      span.numberLeft {
+        margin-right: 4px;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: $black;
+        vertical-align: middle;
+      }
+    }
 
     .pledgeSubmit {
-      overflow: hidden;
       display: none;
       max-height: 0px;
+      overflow: hidden;
       text-align: center;
-      padding-bottom: 1rem;
-      position: relative;
       transition: all 0.3s ease-in-out;
 
-      p {
-        margin: 1.5rem;
-      }
+      .pledgeFlexContainer {
+        margin-top: 1rem;
 
-      label {
-        position: absolute;
-        left: 10px;
-        color: lightgray;
-        bottom: 32px;
-    
-      }
+        p {
+          margin: 1.5rem;
+        }
 
-      input {
-        width: 80px;
-        height: 50px;
-        border: 1px solid lightgray;
-        border-radius: 25px;
-        font-size: 1rem;
-        font-weight: 700;
-        padding-left: 25px;
-        padding-right: 4px;
-        margin-right: 28px;
-      }
+        .pledgeInputButtonContainer {
+          margin-bottom: 1rem;
+          position: relative;
+          display: flex;
+          justify-content: space-between;
 
-      button {
-        @include btnStyleGreen;
-        @include btnHoverFocusActive;
-        width: 100px;
+          input {
+            margin-right: 28px;
+            padding-left: 25px;
+            padding-right: 4px;
+            width: 85px;
+            height: 50px;
+            border: 1px solid lightgray;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 700;
+            text-align: center;
+          }
+
+          .no-spinners {
+            -moz-appearance: textfield;
+          }
+
+          .no-spinners::-webkit-outer-spin-button,
+          .no-spinners::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+          }
+
+          &::before {
+            position: absolute;
+            content: "$";
+            left: 10px;
+            bottom: 16px;
+            color: lightgray;
+          }
+
+          button {
+            @include btnStyleGreen;
+            @include btnHoverFocusActive;
+            width: 100px;
+          }
+        }
       }
     }
 
@@ -113,15 +163,15 @@ section#modalBackingProject {
 
     &.cardActivated {
       box-shadow: 0 0 5px 3px $moderateCyan;
-      //transition: border 0.2s ease-in-out 0.2s;
 
       .pledgeSubmit {
         display: block;
         max-height: 150px;
       }
+
       &::after {
-        content: "";
         position: absolute;
+        content: "";
         left: 0;
         right: 0;
         bottom: 9rem;
@@ -130,7 +180,77 @@ section#modalBackingProject {
     }
   }
 
-  @include medaiQuery30remSectionSize;
-  @include medaiQuery50remSectionSize;
+  @include mediaQuery30remSectionSize;
+  @include mediaQuery50remSectionSize;
 
+  @media screen and (min-width: 30rem) {
+    .card .pledgeSubmit .pledgeFlexContainer .pledgeInputButtonContainer {
+      input {
+        width: 100px;
+      }
+      button {
+        width: 180px;
+      }
+    }
+  }
+
+  @media screen and (min-width: 50rem) {
+    padding-top: 3rem;
+    padding-bottom: 1rem;
+
+    .card {
+      padding: 2rem;
+
+      .gridContainerCardTitle {
+        grid-template-columns: 30px auto 65px;
+        grid-template-rows: auto auto;
+        grid-template-areas: "radio textBox left" ". para para";
+
+        .textBlock {
+          display: flex;
+
+          .pledge {
+            margin-left: 10px;
+          }
+        }
+
+        p:nth-child(4) {
+          margin: 0;
+          text-align: right;
+        }
+      }
+
+      .pledgeSubmit {
+        padding-bottom: 0;
+
+        .pledgeFlexContainer {
+          margin-top: 3rem;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          .pledgeInputButtonContainer {
+            button {
+              width: 120px;
+            }
+          }
+        }
+      }
+
+      &.cardActivated {
+        .pledgeSubmit .pledgeFlexContainer {
+          p {
+            margin: 0;
+          }
+          .pledgeInputButtonContainer {
+            margin-bottom: 0;
+          }
+        }
+
+        &::after {
+          bottom: 7rem;
+        }
+      }
+    }
+  }
 }

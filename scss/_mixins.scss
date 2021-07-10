@@ -33,7 +33,7 @@
   box-shadow: 0 0 5px 1px lightgray;
 }
 
-@mixin medaiQuery30remSectionSize {
+@mixin mediaQuery30remSectionSize {
   @media screen and (min-width: 30rem) {
     width: 26rem;
     margin-left: auto;
@@ -41,8 +41,10 @@
   }
 }
 
-@mixin medaiQuery50remSectionSize {
+@mixin mediaQuery50remSectionSize {
   @media screen and (min-width: 50rem) {
     width: 46rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
   }
 }

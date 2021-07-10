@@ -3,23 +3,23 @@ section#about {
   padding-bottom: 0.5rem;
 
   p {
-    line-height: 1.5;
-    font-size: 0.8rem;
     margin-top: 1rem;
+    font-size: 0.8rem;
+    line-height: 1.5;
   }
 
   .card {
     margin: 2rem 0;
-    border-radius: 8px;
     padding: 1rem;
+    border-radius: 8px;
     box-shadow: 0 0 5px 1px lightgray;
 
     span.numberLeft {
-      vertical-align: middle;
-      font-weight: 700;
+      margin-right: 4px;
       font-size: 2rem;
+      font-weight: 700;
+      vertical-align: middle;
       color: $black;
-      margin-right: 4px
     }
 
     button {
@@ -39,7 +39,25 @@ section#about {
     }
   }
 
-  @include medaiQuery30remSectionSize;
-  @include medaiQuery50remSectionSize;
+  @include mediaQuery30remSectionSize;
+  @include mediaQuery50remSectionSize;
 
+  @media screen and (min-width: 50rem) {
+    padding-top: 3rem;
+    padding-bottom: 1rem;
+
+    .card {
+      padding: 2rem;
+
+      .flexContainerCard {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .pledge {
+          margin: 0;
+        }
+      }
+    }
+  }
 }

@@ -1,11 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;700&display=swap");
 header {
+  padding: 2rem;
+  padding-bottom: 15rem;
   background-image: url("../images/image-hero-mobile.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 2rem;
-  padding-bottom: 15rem;
+}
+
+header .headerFlexContainer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -17,23 +20,22 @@ header {
           align-items: center;
 }
 
-header img {
+header .headerFlexContainer img {
   position: relative;
-  z-index: 1000;
+  z-index: 500;
 }
 
-header #btnToggleMobileMenu {
+header .headerFlexContainer #btnToggleMobileMenu {
   position: relative;
   width: 16px;
   height: 16px;
-  z-index: 1000;
 }
 
-header #btnToggleMobileMenu:hover, header #btnToggleMobileMenu:focus {
+header .headerFlexContainer #btnToggleMobileMenu:hover, header .headerFlexContainer #btnToggleMobileMenu:focus {
   cursor: pointer;
 }
 
-header.isOpen {
+header .headerFlexContainer.isOpen {
   position: relative;
   top: 0;
   left: 0;
@@ -41,8 +43,15 @@ header.isOpen {
   bottom: 0;
 }
 
-header.isOpen nav {
-  margin: 0 2rem 2rem 2rem;
+header .headerFlexContainer.isOpen #imgHeaderLogo {
+  z-index: 1000;
+}
+
+header .headerFlexContainer.isOpen #btnToggleMobileMenu {
+  z-index: 1000;
+}
+
+header .headerFlexContainer.isOpen nav {
   position: absolute;
   top: 5rem;
   left: 0;
@@ -54,12 +63,12 @@ header.isOpen nav {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  background-color: white;
   border-radius: 8px;
+  background-color: white;
   z-index: 500;
 }
 
-header.isOpen nav a {
+header .headerFlexContainer.isOpen nav a {
   padding: 1.5rem;
   font-size: 1.1rem;
   font-weight: 500;
@@ -67,23 +76,71 @@ header.isOpen nav a {
   transition: color 0.3s ease-in-out;
 }
 
-header.isOpen nav a:nth-child(2) {
+header .headerFlexContainer.isOpen nav a:nth-child(2) {
   border-top: 1px solid lightgray;
   border-bottom: 1px solid lightgray;
 }
 
-header.isOpen nav a:hover, header.isOpen nav a:focus {
+header .headerFlexContainer.isOpen nav a:hover, header .headerFlexContainer.isOpen nav a:focus {
   color: red;
 }
 
-header.isOpen nav a:active {
+header .headerFlexContainer.isOpen nav a:active {
   -webkit-transition: all 0s ease-in-out;
   transition: all 0s ease-in-out;
   text-decoration: underline;
 }
 
+@media screen and (min-width: 40rem) {
+  header {
+    padding-top: 3rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    background-image: url("../images/image-hero-desktop.jpg");
+  }
+  header #btnToggleMobileMenu {
+    display: none;
+  }
+  header nav {
+    display: initial;
+  }
+  header nav a {
+    margin-left: 3rem;
+    font-weight: 500;
+    color: white;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+  }
+  header nav a:hover, header nav a:focus {
+    text-decoration: underline;
+  }
+  header nav a:active {
+    -webkit-transition: all 0s ease-in-out;
+    transition: all 0s ease-in-out;
+    color: red;
+  }
+}
+
+@media screen and (min-width: 50rem) {
+  header .headerFlexContainer {
+    margin: 0 auto;
+    width: 90%;
+  }
+}
+
+@media screen and (min-width: 64rem) {
+  header {
+    padding-bottom: 20rem;
+  }
+}
+
+@media screen and (min-width: 80rem) {
+  header .headerFlexContainer {
+    width: 64rem;
+  }
+}
+
 section#title {
-  position: relative;
   margin-left: 2rem;
   margin-right: 2rem;
   padding: 2rem;
@@ -91,6 +148,7 @@ section#title {
   background-color: white;
   -webkit-box-shadow: 0 0 5px 1px lightgray;
           box-shadow: 0 0 5px 1px lightgray;
+  position: relative;
   padding-top: 3rem;
   top: -3rem;
   text-align: center;
@@ -99,15 +157,15 @@ section#title {
 
 section#title::before {
   position: absolute;
+  content: url("../images/logo-mastercraft.svg");
   top: -1.5rem;
   left: 0;
   right: 0;
-  content: url("../images/logo-mastercraft.svg");
 }
 
 section#title h1 {
-  font-weight: 700;
   font-size: 1.8rem;
+  font-weight: 700;
 }
 
 section#title p {
@@ -155,8 +213,8 @@ section#title .flexContainer #btnBackProject:active {
 section#title .flexContainer #btnBookmarkProject {
   width: 50px;
   height: 50px;
-  border-radius: 25px;
   border: none;
+  border-radius: 25px;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
@@ -186,6 +244,32 @@ section#title .flexContainer #btnBookmarkProject:hover, section#title .flexConta
 @media screen and (min-width: 50rem) {
   section#title {
     width: 46rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+@media screen and (min-width: 50rem) {
+  section#title p {
+    margin-bottom: 2rem;
+  }
+  section#title .flexContainer #btnBookmarkProject {
+    width: 180px;
+    text-align: left;
+  }
+  section#title .flexContainer #btnBookmarkProject::after {
+    position: relative;
+    content: "Bookmark";
+    top: -18px;
+    left: 18px;
+    font-size: 1rem;
+    color: #2f2f2f;
+    font-weight: 700;
+  }
+  section#title .flexContainer #btnBookmarkProject.active::after {
+    color: #147b74;
+    content: "Bookmarked";
+    left: 11px;
   }
 }
 
@@ -217,31 +301,31 @@ section#stats .flexContainer .textblock:nth-child(2) {
 
 section#stats .flexContainer .textblock:nth-child(2)::before {
   position: absolute;
+  margin: 0 auto;
+  width: 90px;
   content: "";
   top: 0;
   left: 0;
   right: 0;
-  width: 90px;
-  margin: 0 auto;
   border: 1px solid lightgray;
 }
 
 section#stats .flexContainer .textblock:nth-child(2)::after {
   position: absolute;
+  margin: 0 auto;
+  width: 90px;
   content: "";
   left: 0;
   right: 0;
   bottom: 0;
-  width: 90px;
-  margin: 0 auto;
   border: 1px solid lightgray;
 }
 
 section#stats .progressbar {
-  height: 20px;
   margin: 1rem;
-  background-color: lightgray;
+  height: 20px;
   border-radius: 10px;
+  background-color: lightgray;
 }
 
 section#stats .progressbar .progressbarFilled {
@@ -262,6 +346,52 @@ section#stats .progressbar .progressbarFilled {
 @media screen and (min-width: 50rem) {
   section#stats {
     width: 46rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+@media screen and (min-width: 50rem) {
+  section#stats {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  section#stats .flexContainer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: left;
+        -ms-flex-pack: left;
+            justify-content: left;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    text-align: left;
+  }
+  section#stats .flexContainer .textblock {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-right: 3rem;
+  }
+  section#stats .flexContainer .textblock:not(:nth-child(1)) {
+    padding-left: 3rem;
+  }
+  section#stats .flexContainer .textblock:nth-child(2) {
+    border-left: 2px solid lightgrey;
+    border-right: 2px solid lightgrey;
+  }
+  section#stats .flexContainer .textblock:nth-child(2)::before {
+    position: unset;
+    content: unset;
+  }
+  section#stats .flexContainer .textblock:nth-child(2)::after {
+    position: unset;
+    content: unset;
+  }
+  section#stats .progressbar {
+    padding: 0;
   }
 }
 
@@ -277,25 +407,25 @@ section#about {
 }
 
 section#about p {
-  line-height: 1.5;
-  font-size: 0.8rem;
   margin-top: 1rem;
+  font-size: 0.8rem;
+  line-height: 1.5;
 }
 
 section#about .card {
   margin: 2rem 0;
-  border-radius: 8px;
   padding: 1rem;
+  border-radius: 8px;
   -webkit-box-shadow: 0 0 5px 1px lightgray;
           box-shadow: 0 0 5px 1px lightgray;
 }
 
 section#about .card span.numberLeft {
-  vertical-align: middle;
-  font-weight: 700;
-  font-size: 2rem;
-  color: black;
   margin-right: 4px;
+  font-size: 2rem;
+  font-weight: 700;
+  vertical-align: middle;
+  color: black;
 }
 
 section#about .card button {
@@ -344,6 +474,32 @@ section#about .card.disabled button {
 @media screen and (min-width: 50rem) {
   section#about {
     width: 46rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+@media screen and (min-width: 50rem) {
+  section#about {
+    padding-top: 3rem;
+    padding-bottom: 1rem;
+  }
+  section#about .card {
+    padding: 2rem;
+  }
+  section#about .card .flexContainerCard {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  section#about .card .flexContainerCard .pledge {
+    margin: 0;
   }
 }
 
@@ -390,24 +546,28 @@ section#modalBackingProject .flexContainerModalTitle img:hover, section#modalBac
 }
 
 section#modalBackingProject p {
-  line-height: 1.5;
-  font-size: 0.8rem;
   margin-top: 1rem;
+  font-size: 0.8rem;
+  line-height: 1.5;
 }
 
 section#modalBackingProject .card {
   position: relative;
   margin: 2rem 0;
-  border-radius: 8px;
   padding: 1rem;
+  border-radius: 8px;
   -webkit-box-shadow: 0 0 5px 1px lightgray;
           box-shadow: 0 0 5px 1px lightgray;
 }
 
-section#modalBackingProject .card .flexContainerCardTitle {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+section#modalBackingProject .card .gridContainerCardTitle {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 30px auto;
+      grid-template-columns: 30px auto;
+  -ms-grid-rows: (auto)[3];
+      grid-template-rows: repeat(3, auto);
+      grid-template-areas: "radio textBox" "para para" "left left";
   -webkit-box-pack: left;
       -ms-flex-pack: left;
           justify-content: left;
@@ -416,57 +576,123 @@ section#modalBackingProject .card .flexContainerCardTitle {
           align-items: center;
 }
 
-section#modalBackingProject .card .flexContainerCardTitle input {
+section#modalBackingProject .card .gridContainerCardTitle input {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: radio;
   margin-right: 10px;
+  width: 20px;
+  height: 20px;
 }
 
-section#modalBackingProject .card .flexContainerCardTitle .textBlock .pledge {
+section#modalBackingProject .card .gridContainerCardTitle .textBlock {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: textBox;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+section#modalBackingProject .card .gridContainerCardTitle .textBlock label:focus, section#modalBackingProject .card .gridContainerCardTitle .textBlock label:hover {
+  cursor: pointer;
+}
+
+section#modalBackingProject .card .gridContainerCardTitle .textBlock label:focus h4, section#modalBackingProject .card .gridContainerCardTitle .textBlock label:hover h4 {
+  color: #3cb4ac;
+}
+
+section#modalBackingProject .card .gridContainerCardTitle .textBlock label:active h4 {
+  -webkit-transition: all 0s ease-in-out;
+  transition: all 0s ease-in-out;
+  color: red;
+}
+
+section#modalBackingProject .card .gridContainerCardTitle .textBlock .pledge {
   margin-top: 0;
 }
 
-section#modalBackingProject .card span.numberLeft {
-  vertical-align: middle;
-  font-weight: 700;
-  font-size: 1.5rem;
-  color: black;
+section#modalBackingProject .card .gridContainerCardTitle p:nth-child(3) {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: para;
+}
+
+section#modalBackingProject .card .gridContainerCardTitle p:nth-child(4) {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: left;
+}
+
+section#modalBackingProject .card .gridContainerCardTitle span.numberLeft {
   margin-right: 4px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: black;
+  vertical-align: middle;
 }
 
 section#modalBackingProject .card .pledgeSubmit {
-  overflow: hidden;
   display: none;
   max-height: 0px;
+  overflow: hidden;
   text-align: center;
-  padding-bottom: 1rem;
-  position: relative;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
 
-section#modalBackingProject .card .pledgeSubmit p {
+section#modalBackingProject .card .pledgeSubmit .pledgeFlexContainer {
+  margin-top: 1rem;
+}
+
+section#modalBackingProject .card .pledgeSubmit .pledgeFlexContainer p {
   margin: 1.5rem;
 }
 
-section#modalBackingProject .card .pledgeSubmit label {
-  position: absolute;
-  left: 10px;
-  color: lightgray;
-  bottom: 32px;
+section#modalBackingProject .card .pledgeSubmit .pledgeFlexContainer .pledgeInputButtonContainer {
+  margin-bottom: 1rem;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
-section#modalBackingProject .card .pledgeSubmit input {
-  width: 80px;
+section#modalBackingProject .card .pledgeSubmit .pledgeFlexContainer .pledgeInputButtonContainer input {
+  margin-right: 28px;
+  padding-left: 25px;
+  padding-right: 4px;
+  width: 85px;
   height: 50px;
   border: 1px solid lightgray;
   border-radius: 25px;
   font-size: 1rem;
   font-weight: 700;
-  padding-left: 25px;
-  padding-right: 4px;
-  margin-right: 28px;
+  text-align: center;
 }
 
-section#modalBackingProject .card .pledgeSubmit button {
+section#modalBackingProject .card .pledgeSubmit .pledgeFlexContainer .pledgeInputButtonContainer .no-spinners {
+  -moz-appearance: textfield;
+}
+
+section#modalBackingProject .card .pledgeSubmit .pledgeFlexContainer .pledgeInputButtonContainer .no-spinners::-webkit-outer-spin-button,
+section#modalBackingProject .card .pledgeSubmit .pledgeFlexContainer .pledgeInputButtonContainer .no-spinners::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+section#modalBackingProject .card .pledgeSubmit .pledgeFlexContainer .pledgeInputButtonContainer::before {
+  position: absolute;
+  content: "$";
+  left: 10px;
+  bottom: 16px;
+  color: lightgray;
+}
+
+section#modalBackingProject .card .pledgeSubmit .pledgeFlexContainer .pledgeInputButtonContainer button {
   color: white;
   width: 180px;
   height: 50px;
@@ -480,12 +706,12 @@ section#modalBackingProject .card .pledgeSubmit button {
   width: 100px;
 }
 
-section#modalBackingProject .card .pledgeSubmit button:hover, section#modalBackingProject .card .pledgeSubmit button:focus {
+section#modalBackingProject .card .pledgeSubmit .pledgeFlexContainer .pledgeInputButtonContainer button:hover, section#modalBackingProject .card .pledgeSubmit .pledgeFlexContainer .pledgeInputButtonContainer button:focus {
   background-color: #147b74;
   cursor: pointer;
 }
 
-section#modalBackingProject .card .pledgeSubmit button:active {
+section#modalBackingProject .card .pledgeSubmit .pledgeFlexContainer .pledgeInputButtonContainer button:active {
   -webkit-transition: color 0s ease-in-out;
   transition: color 0s ease-in-out;
   color: red;
@@ -507,8 +733,8 @@ section#modalBackingProject .card.cardActivated .pledgeSubmit {
 }
 
 section#modalBackingProject .card.cardActivated::after {
-  content: "";
   position: absolute;
+  content: "";
   left: 0;
   right: 0;
   bottom: 9rem;
@@ -526,6 +752,73 @@ section#modalBackingProject .card.cardActivated::after {
 @media screen and (min-width: 50rem) {
   section#modalBackingProject {
     width: 46rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+@media screen and (min-width: 30rem) {
+  section#modalBackingProject .card .pledgeSubmit .pledgeFlexContainer .pledgeInputButtonContainer input {
+    width: 100px;
+  }
+  section#modalBackingProject .card .pledgeSubmit .pledgeFlexContainer .pledgeInputButtonContainer button {
+    width: 180px;
+  }
+}
+
+@media screen and (min-width: 50rem) {
+  section#modalBackingProject {
+    padding-top: 3rem;
+    padding-bottom: 1rem;
+  }
+  section#modalBackingProject .card {
+    padding: 2rem;
+  }
+  section#modalBackingProject .card .gridContainerCardTitle {
+    -ms-grid-columns: 30px auto 65px;
+        grid-template-columns: 30px auto 65px;
+    -ms-grid-rows: auto auto;
+        grid-template-rows: auto auto;
+        grid-template-areas: "radio textBox left" ". para para";
+  }
+  section#modalBackingProject .card .gridContainerCardTitle .textBlock {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  section#modalBackingProject .card .gridContainerCardTitle .textBlock .pledge {
+    margin-left: 10px;
+  }
+  section#modalBackingProject .card .gridContainerCardTitle p:nth-child(4) {
+    margin: 0;
+    text-align: right;
+  }
+  section#modalBackingProject .card .pledgeSubmit {
+    padding-bottom: 0;
+  }
+  section#modalBackingProject .card .pledgeSubmit .pledgeFlexContainer {
+    margin-top: 3rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  section#modalBackingProject .card .pledgeSubmit .pledgeFlexContainer .pledgeInputButtonContainer button {
+    width: 120px;
+  }
+  section#modalBackingProject .card.cardActivated .pledgeSubmit .pledgeFlexContainer p {
+    margin: 0;
+  }
+  section#modalBackingProject .card.cardActivated .pledgeSubmit .pledgeFlexContainer .pledgeInputButtonContainer {
+    margin-bottom: 0;
+  }
+  section#modalBackingProject .card.cardActivated::after {
+    bottom: 7rem;
   }
 }
 
@@ -556,8 +849,8 @@ section#modalThankYou h3 {
 
 section#modalThankYou p {
   margin-top: 1rem;
-  line-height: 22px;
   font-size: 0.9rem;
+  line-height: 22px;
 }
 
 section#modalThankYou button {
@@ -596,7 +889,9 @@ section#modalThankYou button:active {
 
 @media screen and (min-width: 50rem) {
   section#modalThankYou {
-    width: 46rem;
+    width: 30rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
   }
 }
 
@@ -613,7 +908,8 @@ h3,
 h4,
 p,
 a,
-::before {
+::before,
+::after {
   font-family: "Commissioner", sans-serif;
   font-weight: 400;
   color: black;
@@ -659,8 +955,12 @@ body .darkoverlay {
   z-index: 1;
 }
 
+body .darkoverlay ~ header .headerFlexContainer img {
+  z-index: 0;
+}
+
 body main {
-  margin-bottom: 3rem;
+  padding-bottom: 3rem;
   background-color: #fafafa;
 }
 /*# sourceMappingURL=main.css.map */

@@ -23,7 +23,8 @@ h3,
 h4,
 p,
 a,
-::before {
+::before,
+::after {
   font-family: "Commissioner", sans-serif;
   font-weight: 400;
   color: $black;
@@ -66,10 +67,14 @@ body {
     background-color: black;
     opacity: 0.5;
     z-index: 1;
+
+    ~header .headerFlexContainer img{
+      z-index: 0;
+    }
   }
 
   main {
-    margin-bottom: 3rem;
+    padding-bottom: 3rem;
     background-color: #fafafa;
   }
 }
