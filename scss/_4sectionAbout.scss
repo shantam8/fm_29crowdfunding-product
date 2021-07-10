@@ -19,6 +19,7 @@ section#about {
       font-weight: 700;
       font-size: 2rem;
       color: $black;
+      margin-right: 4px
     }
 
     button {
@@ -37,4 +38,8 @@ section#about {
       }
     }
   }
+
+  @include medaiQuery30remSectionSize;
+  @include medaiQuery50remSectionSize;
+
 }

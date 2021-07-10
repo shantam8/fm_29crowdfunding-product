@@ -54,4 +54,8 @@ section#stats {
       background-color: $moderateCyan;
     }
   }
+
+  @include medaiQuery30remSectionSize;
+  @include medaiQuery50remSectionSize;
+
 }

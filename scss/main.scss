@@ -22,16 +22,18 @@ h2,
 h3,
 h4,
 p,
-a, ::before
-{
+a,
+::before {
   font-family: "Commissioner", sans-serif;
   font-weight: 400;
   color: $black;
 }
 
-h1, h2, h3, h4{
+h1,
+h2,
+h3,
+h4 {
   font-weight: 700;
-
 }
 
 a {
@@ -43,14 +45,14 @@ p {
   color: $darkGray;
 }
 
-.pledge{
+.pledge {
   font-weight: 500;
   color: $moderateCyan;
 }
 
 body {
   position: relative;
-  
+
   &.overflowHidden {
     overflow: hidden;
   }
@@ -62,11 +64,12 @@ body {
     right: 0;
     bottom: 0;
     background-color: black;
-    z-index: 1;
     opacity: 0.5;
+    z-index: 1;
   }
 
   main {
+    margin-bottom: 3rem;
     background-color: #fafafa;
   }
 }

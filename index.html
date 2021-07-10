@@ -43,7 +43,14 @@
         </p>
         <div class="flexContainer">
           <button id="btnBackProject">Back this project</button>
-          <button id="btnBookmarkProject"></button>
+          <button id="btnBookmarkProject">
+            <svg viewBox="0 0 56 56" width="50" height="50" xmlns="http://www.w3.org/2000/svg">
+              <g fill="none" fill-rule="evenodd">
+                <circle fill="#2F2F2F" cx="28" cy="28" r="28" />
+                <path fill="#B1B1B1" d="M23 19v18l5-5.058L33 37V19z" />
+              </g>
+            </svg>
+          </button>
         </div>
       </section>
 
@@ -91,10 +98,10 @@
             Backer member list.
           </p>
           <p>
-            <span class="numberLeft"> 101 </span>
+            <span class="numberLeft rewardsLeftBamboo"> </span>
             left
           </p>
-          <button id="btnRewardBambooStand">Select Reward</button>
+          <button id="btnSelectRewardBambooStand">Select Reward</button>
         </div>
 
         <div class="card blackEdition">
@@ -105,8 +112,8 @@
             you. You’ll be added to our Backer member list. Shipping is
             included.
           </p>
-          <p><span class="numberLeft"> 64 </span>left</p>
-          <button id="btnRewardBlackStand">Select Reward</button>
+          <p><span class="numberLeft rewardsLeftBlackEdition"></span>left</p>
+          <button id="btnSelectRewardBlackStand">Select Reward</button>
         </div>
         <div class="card mahogany">
           <h4>Mahogany Special Edition</h4>
@@ -116,8 +123,8 @@
             personal thank you. You’ll be added to our Backer member list.
             Shipping is included.
           </p>
-          <p><span class="numberLeft"> 0 </span>left</p>
-          <button id="btnRewardMahogany">Out of Stock</button>
+          <p><span class="numberLeft rewardsLeftMahogany"> 0 </span>left</p>
+          <button id="btnSelectRewardMahogany">Select Reward</button>
         </div>
       </section>
     </main>
@@ -157,12 +164,12 @@
           <input
             id="sumForNoReward"
             type="number"
-            min="25"
-            max="999"
-            value="25"
+            min="1"
+            max="9999"
+            value="1"
           />
 
-          <button id="btnSubmitBamboo">Continue</button>
+          <button id="btnModalSubmitNoReward">Continue</button>
         </div>
 
         <!-- Selected pledge end -->
@@ -181,7 +188,7 @@
           launch our promotional campaign, and you’ll be added to a special
           Backer member list.
         </p>
-        <p><span class="numberLeft"> 101 </span>left</p>
+        <p><span class="numberLeft rewardsLeftBamboo"> </span>left</p>
 
         <!-- Selected pledge start -->
         <div class="pledgeSubmit">
@@ -191,11 +198,11 @@
             id="sumForBamboo"
             type="number"
             min="25"
-            max="999"
+            max="9999"
             value="25"
           />
 
-          <button id="btnSubmitBamboo">Continue</button>
+          <button id="btnModalSubmitBamboo">Continue</button>
         </div>
       </div>
       <!-- Selected pledge end -->
@@ -215,23 +222,21 @@
           You get a Black Special Edition computer stand and a personal thank
           you. You’ll be added to our Backer member list. Shipping is included.
         </p>
-        <p><span class="numberLeft"> 64 </span>left</p>
+        <p><span class="numberLeft rewardsLeftBlackEdition"> </span>left</p>
 
         <!-- Selected pledge start -->
         <div class="pledgeSubmit">
           <p>Enter your pledge</p>
-            <label for="sumForBlackEdition" class="dollarSignContainer"
-              >$
-            </label>
+          <label for="sumForBlackEdition" class="dollarSignContainer">$ </label>
 
-            <input
-              id="sumForBlackEdition"
-              type="number"
-              min="75"
-              max="999"
-              value="75"
-            />
-          <button id="btnSubmitBlackEdition">Continue</button>
+          <input
+            id="sumForBlackEdition"
+            type="number"
+            min="75"
+            max="9999"
+            value="75"
+          />
+          <button id="btnModalSubmitBlackEdition">Continue</button>
         </div>
       </div>
       <!-- Selected pledge end -->
@@ -248,21 +253,21 @@
           personal thank you. You’ll be added to our Backer member list.
           Shipping is included.
         </p>
-        <p><span class="numberLeft"> 0 </span>left</p>
+        <p><span class="numberLeft rewardsLeftMahogany"> </span>left</p>
 
         <!-- Selected pledge  start -->
         <div class="pledgeSubmit">
           <p>Enter your pledge</p>
-            <label for="sumForMahogany" class="dollarSignContainer">$ </label>
+          <label for="sumForMahogany" class="dollarSignContainer">$ </label>
 
-            <input
-              id="sumForMahogany"
-              type="number"
-              min="200"
-              max="999"
-              value="200"
-            />
-          <button id="btnSubmitMahogany">Continue</button>
+          <input
+            id="sumForMahogany"
+            type="number"
+            min="200"
+            max="9999"
+            value="200"
+          />
+          <button id="btnModalSubmitMahogany">Continue</button>
         </div>
       </div>
       <!-- Selected pledge end -->
@@ -280,7 +285,7 @@
         Monitor Riser worldwide. You will get an email once our campaign is
         completed.
       </p>
-      <button>Got it!</button>
+      <button id="btnThankYouModal">Got it!</button>
     </section>
     <!-- Success modal end -->
   </body>

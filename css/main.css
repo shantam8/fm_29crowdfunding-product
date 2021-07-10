@@ -153,10 +153,6 @@ section#title .flexContainer #btnBackProject:active {
 }
 
 section#title .flexContainer #btnBookmarkProject {
-  background-image: url("../images/icon-bookmark.svg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
   width: 50px;
   height: 50px;
   border-radius: 25px;
@@ -165,15 +161,32 @@ section#title .flexContainer #btnBookmarkProject {
   transition: all 0.3s ease-in-out;
 }
 
-section#title .flexContainer #btnBookmarkProject:hover, section#title .flexContainer #btnBookmarkProject:focus {
-  outline: 4px solid #3cb4ac;
-  cursor: pointer;
+section#title .flexContainer #btnBookmarkProject.active svg circle {
+  fill: #147b74;
 }
 
-section#title .flexContainer #btnBookmarkProject:active {
-  -webkit-transition: color 0s ease-in-out;
-  transition: color 0s ease-in-out;
-  outline: 4px solid red;
+section#title .flexContainer #btnBookmarkProject.active svg path {
+  fill: white;
+}
+
+section#title .flexContainer #btnBookmarkProject:hover, section#title .flexContainer #btnBookmarkProject:focus {
+  cursor: pointer;
+  -webkit-box-shadow: 0px 0 8px 3px #3cb4ac;
+          box-shadow: 0px 0 8px 3px #3cb4ac;
+}
+
+@media screen and (min-width: 30rem) {
+  section#title {
+    width: 26rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media screen and (min-width: 50rem) {
+  section#title {
+    width: 46rem;
+  }
 }
 
 section#stats {
@@ -238,6 +251,20 @@ section#stats .progressbar .progressbarFilled {
   background-color: #3cb4ac;
 }
 
+@media screen and (min-width: 30rem) {
+  section#stats {
+    width: 26rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media screen and (min-width: 50rem) {
+  section#stats {
+    width: 46rem;
+  }
+}
+
 section#about {
   margin-left: 2rem;
   margin-right: 2rem;
@@ -268,6 +295,7 @@ section#about .card span.numberLeft {
   font-weight: 700;
   font-size: 2rem;
   color: black;
+  margin-right: 4px;
 }
 
 section#about .card button {
@@ -305,10 +333,24 @@ section#about .card.disabled button {
   background-color: lightgray;
 }
 
+@media screen and (min-width: 30rem) {
+  section#about {
+    width: 26rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media screen and (min-width: 50rem) {
+  section#about {
+    width: 46rem;
+  }
+}
+
 section#modalBackingProject {
   display: none;
   position: absolute;
-  top: 40rem;
+  top: 10rem;
   left: 0;
   right: 0;
   z-index: 1000;
@@ -387,6 +429,7 @@ section#modalBackingProject .card span.numberLeft {
   font-weight: 700;
   font-size: 1.5rem;
   color: black;
+  margin-right: 4px;
 }
 
 section#modalBackingProject .card .pledgeSubmit {
@@ -472,6 +515,91 @@ section#modalBackingProject .card.cardActivated::after {
   border: 1px solid lightgray;
 }
 
+@media screen and (min-width: 30rem) {
+  section#modalBackingProject {
+    width: 26rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media screen and (min-width: 50rem) {
+  section#modalBackingProject {
+    width: 46rem;
+  }
+}
+
+section#modalThankYou {
+  display: none;
+  position: absolute;
+  top: 10rem;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  padding: 2rem;
+  border-radius: 8px;
+  background-color: white;
+  -webkit-box-shadow: 0 0 5px 1px lightgray;
+          box-shadow: 0 0 5px 1px lightgray;
+  text-align: center;
+}
+
+section#modalThankYou.showModal {
+  display: initial;
+}
+
+section#modalThankYou h3 {
+  margin-top: 1rem;
+}
+
+section#modalThankYou p {
+  margin-top: 1rem;
+  line-height: 22px;
+  font-size: 0.9rem;
+}
+
+section#modalThankYou button {
+  color: white;
+  width: 180px;
+  height: 50px;
+  border: none;
+  border-radius: 25px;
+  background-color: #3cb4ac;
+  font-size: 1rem;
+  font-weight: 700;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  margin-top: 2rem;
+  width: 100px;
+}
+
+section#modalThankYou button:hover, section#modalThankYou button:focus {
+  background-color: #147b74;
+  cursor: pointer;
+}
+
+section#modalThankYou button:active {
+  -webkit-transition: color 0s ease-in-out;
+  transition: color 0s ease-in-out;
+  color: red;
+}
+
+@media screen and (min-width: 30rem) {
+  section#modalThankYou {
+    width: 26rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media screen and (min-width: 50rem) {
+  section#modalThankYou {
+    width: 46rem;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -484,13 +612,17 @@ h2,
 h3,
 h4,
 p,
-a, ::before {
+a,
+::before {
   font-family: "Commissioner", sans-serif;
   font-weight: 400;
   color: black;
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   font-weight: 700;
 }
 
@@ -523,11 +655,12 @@ body .darkoverlay {
   right: 0;
   bottom: 0;
   background-color: black;
-  z-index: 1;
   opacity: 0.5;
+  z-index: 1;
 }
 
 body main {
+  margin-bottom: 3rem;
   background-color: #fafafa;
 }
 /*# sourceMappingURL=main.css.map */

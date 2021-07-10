@@ -1,0 +1,38 @@
+section#modalThankYou {
+  display: none;
+  position: absolute;
+  top: 10rem;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+
+  @include sectionBorderMarginPadding;
+  text-align: center;
+
+  &.showModal {
+    display: initial;
+  }
+
+  h3 {
+    margin-top: 1rem;
+  }
+
+  p {
+    margin-top: 1rem;
+    line-height: 22px;
+    font-size: 0.9rem;
+  }
+
+  button {
+    @include btnStyleGreen;
+    @include btnHoverFocusActive;
+    margin-top: 2rem;
+    width: 100px;
+  }
+
+
+  @include medaiQuery30remSectionSize;
+@include medaiQuery50remSectionSize;
+
+
+}

@@ -1,33 +1,48 @@
 @mixin btnStyleGreen {
-    color: white;
-    width: 180px;
-    height: 50px;
-    border: none;
-    border-radius: 25px;
-    background-color: $moderateCyan;
-    font-size: 1rem;
-    font-weight: 700;
+  color: white;
+  width: 180px;
+  height: 50px;
+  border: none;
+  border-radius: 25px;
+  background-color: $moderateCyan;
+  font-size: 1rem;
+  font-weight: 700;
 }
 
 @mixin btnHoverFocusActive {
-    transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 
-    &:hover, &:focus{
-        background-color: $darkCyan;
-        cursor: pointer;
-    }
+  &:hover,
+  &:focus {
+    background-color: $darkCyan;
+    cursor: pointer;
+  }
 
-    &:active{
-        transition: color 0s ease-in-out;
-        color: red;
-    }
+  &:active {
+    transition: color 0s ease-in-out;
+    color: red;
+  }
 }
 
 @mixin sectionBorderMarginPadding {
-    margin-left: 2rem;
-    margin-right: 2rem;
-    padding: 2rem;
-    border-radius: 8px;
-    background-color: white;
-    box-shadow: 0 0 5px 1px lightgray;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  padding: 2rem;
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: 0 0 5px 1px lightgray;
+}
+
+@mixin medaiQuery30remSectionSize {
+  @media screen and (min-width: 30rem) {
+    width: 26rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@mixin medaiQuery50remSectionSize {
+  @media screen and (min-width: 50rem) {
+    width: 46rem;
+  }
 }

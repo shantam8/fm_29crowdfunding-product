@@ -1,7 +1,7 @@
 section#modalBackingProject {
   display: none;
   position: absolute;
-  top: 40rem;
+  top: 10rem;
   left: 0;
   right: 0;
   z-index: 1000;
@@ -62,7 +62,9 @@ section#modalBackingProject {
       font-weight: 700;
       font-size: 1.5rem;
       color: $black;
+      margin-right: 4px;
     }
+
 
     .pledgeSubmit {
       overflow: hidden;
@@ -127,4 +129,8 @@ section#modalBackingProject {
       }
     }
   }
+
+  @include medaiQuery30remSectionSize;
+  @include medaiQuery50remSectionSize;
+
 }
