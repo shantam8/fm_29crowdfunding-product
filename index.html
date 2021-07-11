@@ -22,17 +22,29 @@
     <header>
       <div class="headerFlexContainer">
         <img id="imgHeaderLogo" src="./images/logo.svg" alt="logo" />
-        <nav hidden>
-          <a href="#">About</a>
-          <a href="#">Discover</a>
-          <a href="#">Get Started</a>
-        </nav>
 
-        <img
-          id="btnToggleMobileMenu"
-          src="./images/icon-hamburger.svg"
-          alt="open Menu"
-        />
+        <button id="btnToggleMobileMenu" aria-label="open menu">
+          <img
+            id="btnImgToggleMobileMenu"
+            aria-hidden="true"
+            src="./images/icon-hamburger.svg"
+            alt="toggle mobile Menu"
+          />
+        </button>
+        <nav hidden>
+          <a id="aLinkAbout" href="#" aria-label="Link to About section"
+            >About</a
+          >
+          <a id="aLinkDiscover" href="#" aria-label="Link to Discover section"
+            >Discover</a
+          >
+          <a
+            id="aLinkGetStarted"
+            href="#"
+            aria-label="Link to Get started section"
+            >Get Started</a
+          >
+        </nav>
       </div>
     </header>
 
@@ -43,8 +55,10 @@
           A beautiful & handcrafted monitor stand to reduce neck and eye strain.
         </p>
         <div class="flexContainer">
-          <button id="btnBackProject">Back this project</button>
-          <button id="btnBookmarkProject">
+          <button id="btnBackProject" aria-label="Back this project">
+            Back this project
+          </button>
+          <button id="btnBookmarkProject" aria-label="bookmark this page">
             <svg
               viewBox="0 0 56 56"
               width="50"
@@ -110,7 +124,12 @@
               <span class="numberLeft rewardsLeftBamboo"> </span>
               left
             </p>
-            <button id="btnSelectRewardBambooStand">Select Reward</button>
+            <button
+              id="btnSelectRewardBambooStand"
+              aria-label="select bamboo stand as reward"
+            >
+              Select Reward
+            </button>
           </div>
         </div>
 
@@ -126,7 +145,12 @@
           </p>
           <div class="flexContainerCard">
             <p><span class="numberLeft rewardsLeftBlackEdition"></span>left</p>
-            <button id="btnSelectRewardBlackStand">Select Reward</button>
+            <button
+              id="btnSelectRewardBlackStand"
+              aria-label="select black edition stand as reward"
+            >
+              Select Reward
+            </button>
           </div>
         </div>
 
@@ -142,7 +166,12 @@
           </p>
           <div class="flexContainerCard">
             <p><span class="numberLeft rewardsLeftMahogany"> 0 </span>left</p>
-            <button id="btnSelectRewardMahogany">Select Reward</button>
+            <button
+              id="btnSelectRewardMahogany"
+              aria-label="select mahogany stand as reward"
+            >
+              Select Reward
+            </button>
           </div>
         </div>
       </section>
@@ -152,11 +181,13 @@
     <section id="modalBackingProject">
       <div class="flexContainerModalTitle">
         <h3>Back this project</h3>
-        <img
-          id="btnCloseModal"
-          src="./images/icon-close-modal.svg"
-          alt="close modal"
-        />
+        <button id="btnCloseModal" aria-label="close backer menu">
+          <img
+            aria-hidden="true"
+            src="./images/icon-close-modal.svg"
+            alt="close modal"
+          />
+        </button>
       </div>
       <p>
         Want to support us in bringing Mastercraft Bamboo Monitor Riser out in
@@ -165,7 +196,13 @@
 
       <div class="card">
         <div class="gridContainerCardTitle">
-          <input type="radio" name="selectReward" id="radioBtnNoReward" />
+          <input
+            type="radio"
+            name="selectReward"
+            id="radioBtnNoReward"
+            aria-checked="false"
+            aria-label="select pledge without reward"
+          />
           <div class="textBlock">
             <label for="radioBtnNoReward">
               <h4>Pledge with no reward</h4>
@@ -184,13 +221,19 @@
             <div class="pledgeInputButtonContainer">
               <input
                 id="sumForNoReward"
+                aria-label="enter height of your pledge"
                 class="no-spinners"
                 type="number"
                 min="1"
                 max="9999"
                 value="1"
               />
-              <button id="btnModalSubmitNoReward">Continue</button>
+              <button
+                id="btnModalSubmitNoReward"
+                aria-label="submit your pledge"
+              >
+                Continue
+              </button>
             </div>
           </div>
         </div>
@@ -199,7 +242,13 @@
 
       <div class="card bambooStand">
         <div class="gridContainerCardTitle">
-          <input type="radio" name="selectReward" id="radioBtnBambooReward" />
+          <input
+            type="radio"
+            name="selectReward"
+            id="radioBtnBambooReward"
+            aria-checked="false"
+            aria-label="select bamboo stand as reward"
+          />
           <div class="textBlock">
             <label for="radioBtnBambooReward">
               <h4>Bamboo Stand</h4>
@@ -219,6 +268,7 @@
             <p>Enter your pledge</p>
             <div class="pledgeInputButtonContainer">
               <input
+                aria-label="enter height of your pledge"
                 id="sumForBamboo"
                 class="no-spinners"
                 type="number"
@@ -226,7 +276,9 @@
                 max="9999"
                 value="25"
               />
-              <button id="btnModalSubmitBamboo">Continue</button>
+              <button id="btnModalSubmitBamboo" aria-label="submit your pledge">
+                Continue
+              </button>
             </div>
           </div>
         </div>
@@ -240,7 +292,11 @@
             id="radioBtnBlackEditionReward"
           />
           <div class="textBlock">
-            <label for="radioBtnBlackEditionReward">
+            <label
+              for="radioBtnBlackEditionReward"
+              aria-checked="false"
+              aria-label="select black edition stand as reward"
+            >
               <h4>Black Edition Stand</h4>
             </label>
             <p class="pledge">Pledge $75 or more</p>
@@ -260,13 +316,19 @@
             <div class="pledgeInputButtonContainer">
               <input
                 id="sumForBlackEdition"
+                aria-label="enter height of your pledge"
                 class="no-spinners"
                 type="number"
                 min="75"
                 max="9999"
                 value="75"
               />
-              <button id="btnModalSubmitBlackEdition">Continue</button>
+              <button
+                id="btnModalSubmitBlackEdition"
+                aria-label="submit your pledge"
+              >
+                Continue
+              </button>
             </div>
           </div>
         </div>
@@ -275,7 +337,13 @@
 
       <div class="card mahogany">
         <div class="gridContainerCardTitle">
-          <input type="radio" name="selectReward" id="radioBtnMahoganyReward" />
+          <input
+            type="radio"
+            name="selectReward"
+            id="radioBtnMahoganyReward"
+            aria-checked="false"
+            aria-label="select mahogany stand as reward"
+          />
           <div class="textBlock">
             <label for="radioBtnMahoganyReward">
               <h4>Mahogany Special Edition</h4>
@@ -297,13 +365,19 @@
             <div class="pledgeInputButtonContainer">
               <input
                 id="sumForMahogany"
+                aria-label="enter height of your pledge"
                 class="no-spinners"
                 type="number"
                 min="200"
                 max="9999"
                 value="200"
               />
-              <button id="btnModalSubmitMahogany">Continue</button>
+              <button
+                id="btnModalSubmitMahogany"
+                aria-label="submit your pledge"
+              >
+                Continue
+              </button>
             </div>
           </div>
         </div>
@@ -321,7 +395,12 @@
         Monitor Riser worldwide. You will get an email once our campaign is
         completed.
       </p>
-      <button id="btnThankYouModal">Got it!</button>
+      <button
+        id="btnThankYouModal"
+        aria-label="Thank you for your help, return to main page"
+      >
+        Got it!
+      </button>
     </section>
     <!-- Success modal end -->
   </body>

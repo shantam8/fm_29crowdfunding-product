@@ -11,9 +11,14 @@ header {
     justify-content: space-between;
     align-items: center;
 
-    img {
-      position: relative;
-      z-index: 500;
+    button {
+      border: none;
+      background-color: transparent;
+
+      img {
+        position: relative;
+        z-index: 500;
+      }
     }
 
     #btnToggleMobileMenu {
@@ -24,6 +29,7 @@ header {
       &:hover,
       &:focus {
         cursor: pointer;
+        outline: 1px solid red;
       }
     }
 
@@ -34,7 +40,7 @@ header {
       right: 0;
       bottom: 0;
 
-      #imgHeaderLogo{
+      #imgHeaderLogo {
         z-index: 1000;
       }
 

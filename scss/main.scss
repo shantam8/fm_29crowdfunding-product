@@ -30,6 +30,11 @@ a,
   color: $black;
 }
 
+:focus {
+  outline: none;
+  box-shadow: 0px 0 8px 3px $moderateCyan;
+}
+
 h1,
 h2,
 h3,
@@ -68,7 +73,7 @@ body {
     opacity: 0.5;
     z-index: 1;
 
-    ~header .headerFlexContainer img{
+    ~ header .headerFlexContainer img {
       z-index: 0;
     }
   }

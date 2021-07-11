@@ -58,7 +58,7 @@ section#modalBackingProject {
       }
       .textBlock {
         grid-area: textBox;
-        
+
         label {
           &:focus,
           &:hover {
@@ -239,6 +239,8 @@ section#modalBackingProject {
 
       &.cardActivated {
         .pledgeSubmit .pledgeFlexContainer {
+          padding-bottom: 8px;
+          padding-right: 8px;
           p {
             margin: 0;
           }

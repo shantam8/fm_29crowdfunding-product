@@ -20,7 +20,12 @@ header .headerFlexContainer {
           align-items: center;
 }
 
-header .headerFlexContainer img {
+header .headerFlexContainer button {
+  border: none;
+  background-color: transparent;
+}
+
+header .headerFlexContainer button img {
   position: relative;
   z-index: 500;
 }
@@ -33,6 +38,7 @@ header .headerFlexContainer #btnToggleMobileMenu {
 
 header .headerFlexContainer #btnToggleMobileMenu:hover, header .headerFlexContainer #btnToggleMobileMenu:focus {
   cursor: pointer;
+  outline: 1px solid red;
 }
 
 header .headerFlexContainer.isOpen {
@@ -589,8 +595,6 @@ section#modalBackingProject .card .gridContainerCardTitle .textBlock {
   -ms-grid-row: 1;
   -ms-grid-column: 2;
   grid-area: textBox;
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
 }
 
 section#modalBackingProject .card .gridContainerCardTitle .textBlock label:focus, section#modalBackingProject .card .gridContainerCardTitle .textBlock label:hover {
@@ -602,8 +606,6 @@ section#modalBackingProject .card .gridContainerCardTitle .textBlock label:focus
 }
 
 section#modalBackingProject .card .gridContainerCardTitle .textBlock label:active h4 {
-  -webkit-transition: all 0s ease-in-out;
-  transition: all 0s ease-in-out;
   color: red;
 }
 
@@ -811,6 +813,10 @@ section#modalBackingProject .card.cardActivated::after {
   section#modalBackingProject .card .pledgeSubmit .pledgeFlexContainer .pledgeInputButtonContainer button {
     width: 120px;
   }
+  section#modalBackingProject .card.cardActivated .pledgeSubmit .pledgeFlexContainer {
+    padding-bottom: 8px;
+    padding-right: 8px;
+  }
   section#modalBackingProject .card.cardActivated .pledgeSubmit .pledgeFlexContainer p {
     margin: 0;
   }
@@ -913,6 +919,12 @@ a,
   font-family: "Commissioner", sans-serif;
   font-weight: 400;
   color: black;
+}
+
+:focus {
+  outline: none;
+  -webkit-box-shadow: 0px 0 8px 3px #3cb4ac;
+          box-shadow: 0px 0 8px 3px #3cb4ac;
 }
 
 h1,

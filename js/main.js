@@ -1,14 +1,37 @@
+//variables
+let totalSumBacked = 49914;
+let totalNumberBackers = 5007;
+let totalNumberDaysLeft = 56;
+let totalRewardsLeftBamboo = 101;
+let totalRewardsLeftBlackEdition = 2; //64
+let totalRewardsLeftMahogany = 1;
+
+//status fields
+let statusFieldMoneyBacked = document.querySelector("#statsMoney");
+let statusFieldNumberBackers = document.querySelector("#statsBackers");
+let statusFieldNumberDaysLeft = document.querySelector("#statsDays");
+let statusFieldsRewardsLeftBamboo =
+  document.querySelectorAll(".rewardsLeftBamboo");
+let statusFieldsRewardsLeftBlackEdition = document.querySelectorAll(
+  ".rewardsLeftBlackEdition"
+);
+let statusFieldsRewardsLeftMahogany = document.querySelectorAll(
+  ".rewardsLeftMahogany"
+);
+
+//sections
 let bodySection = document.querySelector("body");
 let mainSection = document.querySelector("main");
-let divDarkoverlay = document.querySelector("#darkOverlay");
-
 let headerSection = document.querySelector(".headerFlexContainer");
-let btnToggleMobileMenu = document.querySelector("#btnToggleMobileMenu");
-let btnToggleBookmark = document.querySelector("#btnBookmarkProject");
 let sectionBackingModal = document.querySelector("#modalBackingProject");
 let sectionThankYouModal = document.querySelector("#modalThankYou");
 
-// Select reward / open modal
+//buttons
+let btnToggleMobileMenu = document.querySelector("#btnToggleMobileMenu");
+let btnToggleBookmark = document.querySelector("#btnBookmarkProject");
+let btnBackThisProject = document.querySelector("#btnBackProject");
+
+//buttons Select reward / open modal
 let btnSelectRewardBambooStand = document.querySelector(
   "#btnSelectRewardBambooStand"
 );
@@ -19,7 +42,7 @@ let btnSelectRewardMahogany = document.querySelector(
   "#btnSelectRewardMahogany"
 );
 
-// Submit selected reward bnt / close reward modal
+//buttons Submit selected reward / close reward modal
 let btnModalSubmitNoReward = document.querySelector("#btnModalSubmitNoReward");
 let btnModalSubmitBamboo = document.querySelector("#btnModalSubmitBamboo");
 let btnModalSubmitBlackEdition = document.querySelector(
@@ -27,38 +50,28 @@ let btnModalSubmitBlackEdition = document.querySelector(
 );
 let btnModalSubmitMahogany = document.querySelector("#btnModalSubmitMahogany");
 
+//radiobutton
+let radioBtnNoReward = document.querySelector("#radioBtnNoReward");
 let radioBtnBambooReward = document.querySelector("#radioBtnBambooReward");
 let radioBtnBlackEditionReward = document.querySelector(
   "#radioBtnBlackEditionReward"
 );
 let radioBtnMahoganyReward = document.querySelector("#radioBtnMahoganyReward");
-
 let radioBtns = document.querySelectorAll('input[name="selectReward"]');
 
-let totalSumBacked = 89914;
-let totalNumberBackers = 5007;
-let totalNumberDaysLeft = 56;
-let statusFieldMoneyBacked = document.querySelector("#statsMoney");
-let statusFieldNumberBackers = document.querySelector("#statsBackers");
-let statusFieldNumberDaysLeft = document.querySelector("#statsDays");
-
-let totalRewardsLeftBamboo = 101;
-let totalRewardsLeftBlackEdition = 64;
-let totalRewardsLeftMahogany = 1;
-let statusFieldsRewardsLeftBamboo =
-  document.querySelectorAll(".rewardsLeftBamboo");
-let statusFieldsRewardsLeftBlackEdition = document.querySelectorAll(
-  ".rewardsLeftBlackEdition"
-);
-let statusFieldsRewardsLeftMahogany = document.querySelectorAll(
-  ".rewardsLeftMahogany"
-);
+//misc
+let divDarkoverlay = document.querySelector("#darkOverlay");
 
 function toggleBookmark() {
   if (btnToggleBookmark.classList.contains("active")) {
     btnToggleBookmark.classList.remove("active");
+    btnBookmarkProject.setAttribute("aria-label", "bookmark this page");
   } else {
     btnToggleBookmark.classList.add("active");
+    btnBookmarkProject.setAttribute(
+      "aria-label",
+      "page bookmarked, remove bookmark"
+    );
   }
 }
 
@@ -67,15 +80,18 @@ function mobileMenuToggle() {
     divDarkoverlay.classList.remove("darkoverlay");
     bodySection.classList.remove("overflowHidden");
     headerSection.classList.remove("isOpen");
-    btnToggleMobileMenu.src = "../images/icon-hamburger.svg";
-    btnToggleMobileMenu.alt = "open menu";
+    document.querySelector("#btnImgToggleMobileMenu").src =
+      "../images/icon-hamburger.svg";
+    btnToggleMobileMenu.setAttribute("aria-label", "open menu");
   } else {
     divDarkoverlay.classList.add("darkoverlay");
     bodySection.classList.add("overflowHidden");
     headerSection.classList.add("isOpen");
-    btnToggleMobileMenu.src = "../images/icon-close-menu.svg";
-    btnToggleMobileMenu.alt = "close menu";
+    document.querySelector("#btnImgToggleMobileMenu").src =
+      "../images/icon-close-menu.svg";
+    btnToggleMobileMenu.setAttribute("aria-label", "close menu");
   }
+  toggleFirstLayerTabIndex();
 }
 
 function toggleModal(selectedReward) {
@@ -87,7 +103,26 @@ function toggleModal(selectedReward) {
     sectionBackingModal.classList.add("showModal");
     divDarkoverlay.classList.add("darkoverlay");
     window.scrollTo(0, 0);
+
+    switch (selectedReward) {
+      case "bambooStand":
+        radioBtnBambooReward.focus();
+        window.scrollTo(0, 150);
+        break;
+      case "blackEdition":
+        radioBtnBlackEditionReward.focus();
+        window.scrollTo(0, 200);
+        break;
+      case "mahogany":
+        radioBtnMahoganyReward.focus();
+        window.scrollTo(0, 250);
+        break;
+      default:
+        radioBtnNoReward.focus();
+        break;
+    }
   }
+  toggleOpenModalTabIndexes();
 }
 
 function toggleShowThankYouModal() {
@@ -99,7 +134,9 @@ function toggleShowThankYouModal() {
     sectionBackingModal.classList.remove("showModal");
     sectionThankYouModal.classList.add("showModal");
     window.scrollTo(0, 0);
+    document.querySelector("#btnThankYouModal").focus();
   }
+  toggleThankYouModalTabIndexes();
 }
 
 function processSubmittedPledge(reward, value) {
@@ -136,6 +173,9 @@ function deactivateRewardBlock(reward) {
   cardsToDeactivate.forEach((element) => {
     element.classList.add("disabled");
     element.querySelector("button").innerText = "Out of Stock";
+    if (element.querySelector("input[type=radio]")) {
+      element.querySelector("input").disabled = true;
+    }
   });
 }
 
@@ -179,8 +219,55 @@ function closeMobileMenuOnResize() {
   }
 }
 
+function toggleFirstLayerTabIndex() {
+  if (headerSection.classList.contains("isOpen")) {
+    btnSelectRewardBambooStand.tabIndex = -1;
+    btnSelectRewardBlackEdition.tabIndex = -1;
+    btnSelectRewardMahogany.tabIndex = -1;
+    btnToggleBookmark.tabIndex = -1;
+    btnBackThisProject.tabIndex = -1;
+  } else {
+    btnSelectRewardBambooStand.tabIndex = 0;
+    btnSelectRewardBlackEdition.tabIndex = 0;
+    btnSelectRewardMahogany.tabIndex = 0;
+    btnToggleBookmark.tabIndex = 0;
+    btnBackThisProject.tabIndex = 0;
+  }
+}
+
+function toggleOpenModalTabIndexes() {
+  if (sectionBackingModal.classList.contains("showModal")) {
+    btnSelectRewardBambooStand.tabIndex = -1;
+    btnSelectRewardBlackEdition.tabIndex = -1;
+    btnSelectRewardMahogany.tabIndex = -1;
+    btnToggleBookmark.tabIndex = -1;
+    btnBackThisProject.tabIndex = -1;
+    document.querySelector("#aLinkAbout").tabIndex = -1;
+    document.querySelector("#aLinkDiscover").tabIndex = -1;
+    document.querySelector("#aLinkGetStarted").tabIndex = -1;
+  }
+}
+
+function toggleThankYouModalTabIndexes() {
+  if (sectionThankYouModal.classList.contains("showModal")) {
+  } else {
+    btnSelectRewardBambooStand.tabIndex =
+      btnSelectRewardBambooStand.innerText == "Out of Stock" ? -1 : 0;
+    btnSelectRewardBlackEdition.tabIndex =
+      btnSelectRewardBlackEdition.innerText == "Out of Stock" ? -1 : 0;
+    btnSelectRewardMahogany.tabIndex =
+      btnSelectRewardMahogany.innerText == "Out of Stock" ? -1 : 0;
+
+    btnToggleBookmark.tabIndex = 0;
+    btnBackThisProject.tabIndex = 0;
+    document.querySelector("#aLinkAbout").tabIndex = 0;
+    document.querySelector("#aLinkDiscover").tabIndex = 0;
+    document.querySelector("#aLinkGetStarted").tabIndex = 0;
+    document.querySelector("#aLinkAbout").focus();
+  }
+}
+
 function init() {
-  console.log("Hi");
   updateBackerStates();
   updateRewardsLeft();
   toggleRadioBtn("allOff");
@@ -197,9 +284,7 @@ function init() {
   document
     .querySelector("#btnCloseModal")
     .addEventListener("click", toggleModal);
-  document
-    .querySelector("#btnBackProject")
-    .addEventListener("click", toggleModal);
+  btnBackThisProject.addEventListener("click", toggleModal);
   btnSelectRewardBambooStand.addEventListener("click", () => {
     toggleModal("bambooStand");
   });
