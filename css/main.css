@@ -597,15 +597,16 @@ section#modalBackingProject .card .gridContainerCardTitle .textBlock {
   grid-area: textBox;
 }
 
-section#modalBackingProject .card .gridContainerCardTitle .textBlock label:focus, section#modalBackingProject .card .gridContainerCardTitle .textBlock label:hover {
-  cursor: pointer;
+section#modalBackingProject .card .gridContainerCardTitle .textBlock label {
+  font-weight: 700;
 }
 
-section#modalBackingProject .card .gridContainerCardTitle .textBlock label:focus h4, section#modalBackingProject .card .gridContainerCardTitle .textBlock label:hover h4 {
+section#modalBackingProject .card .gridContainerCardTitle .textBlock label:focus, section#modalBackingProject .card .gridContainerCardTitle .textBlock label:hover {
+  cursor: pointer;
   color: #3cb4ac;
 }
 
-section#modalBackingProject .card .gridContainerCardTitle .textBlock label:active h4 {
+section#modalBackingProject .card .gridContainerCardTitle .textBlock label:active {
   color: red;
 }
 
@@ -914,6 +915,7 @@ h3,
 h4,
 p,
 a,
+label,
 ::before,
 ::after {
   font-family: "Commissioner", sans-serif;

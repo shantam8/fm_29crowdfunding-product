@@ -60,17 +60,15 @@ section#modalBackingProject {
         grid-area: textBox;
 
         label {
+          font-weight: 700;
+
           &:focus,
           &:hover {
             cursor: pointer;
-            h4 {
-              color: $moderateCyan;
-            }
+            color: $moderateCyan;
           }
           &:active {
-            h4 {
-              color: red;
-            }
+            color: red;
           }
         }
 
