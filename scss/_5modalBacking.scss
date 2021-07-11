@@ -20,10 +20,13 @@ section#modalBackingProject {
     button {
       background: transparent;
       border: none;
+
       img {
+        display: block;
         width: 15px;
         height: 15px;
       }
+      
       &:hover,
       &:focus {
         cursor: pointer;
