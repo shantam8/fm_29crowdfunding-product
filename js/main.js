@@ -88,7 +88,7 @@ function mobileMenuToggle() {
     bodySection.classList.add("overflowHidden");
     headerSection.classList.add("isOpen");
     document.querySelector("#btnImgToggleMobileMenu").src =
-      "../images/icon-close-menu.svg";
+      "./images/icon-close-menu.svg";
     btnToggleMobileMenu.setAttribute("aria-label", "close menu");
   }
   toggleFirstLayerTabIndex();
