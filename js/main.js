@@ -81,7 +81,7 @@ function mobileMenuToggle() {
     bodySection.classList.remove("overflowHidden");
     headerSection.classList.remove("isOpen");
     document.querySelector("#btnImgToggleMobileMenu").src =
-      "../images/icon-hamburger.svg";
+      "./images/icon-hamburger.svg";
     btnToggleMobileMenu.setAttribute("aria-label", "open menu");
   } else {
     divDarkoverlay.classList.add("darkoverlay");
